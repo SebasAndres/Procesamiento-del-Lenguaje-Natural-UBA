@@ -1,21 +1,42 @@
 # Procesamiento-del-Lenguaje-Natural-UBA
 
 ## Evaluacion
-- [ ] 1 Examen escrito 27/05
-- [ ] 1 TP
-- [ ] 1 Oral
+- [ ] Examen escrito — 5 pts — **24/06**
+- [ ] TP (comparativa de tecnicas sobre dataset clasico) — 2 pts — entrega **01/07**
+- [ ] Presentacion de paper (individual, ~20 min) — 5 pts — a coordinar
 
-## Cronograma tentativo
+> El TP consiste en tomar un problema clasico (ej: sentiment en Yelp) y resolverlo con multiples tecnicas en orden historico: BoW → fasttext → RNN → BERT finetuneado → LLM. Entregable: una pagina con descripcion + tabla/grafico comparativo.
 
-- [ ] 18/03 - Pre-procesamiento y modelos probabilisticos: Tokenizacion, Normalización (Stemming vs. Lemmatization), Stopwords, N-Grams, Cadenas de Markov, Smoothing (Laplace/Kneser-Ney), Perplexity.
-- [ ] 25/03 - Vectorización y clasificación clásica: Vector Space Model, Bag of Words (BoW), TF-IDF, BM25, Naive Bayes, SVM (Support Vector Machines), Feature Engineering de texto, latent semantic analysis.
-- [ ] 01/04 - Resumen de lo anterior. Tokenización moderna (BPE/WordPiece) y word embeddings.
-- [ ] 08/04 - LSTMs y Redes Recurrentes. ELMO
-- [ ] 15/04 - Transformers y Atención
-- [ ] 22/04 - Pre-entrenamiento, embeddings contextuales y transferencia de aprendizaje con BERT y sus variantes.
-- [ ] 29/04 - Modelos Generativos: GPT, T5 etc
-- [ ] 06/05 - Ajuste Fino (LoRA y Adapters).
-- [ ] 13/05 - Alineación y Razonamiento: Instrucciones, RLHF, DPO y Chain-of-Thought. Sesgo y 
-- [ ] 20/05 - Destilación de modelos, cuantización, sistemas RAG y agentes autónomos.
+## Cronograma actualizado (mail 05/05)
 
-- [ ] 27/05 - Examen
+| Fecha | Clase | Notas |
+|-------|-------|-------|
+| 13/05 | Consultas / Repaso general | [meet.google.com/dgn-gjbe-kie](https://meet.google.com/dgn-gjbe-kie) |
+| 20/05 | Repaso de todo lo asignado | [clase1](teoria/clase1.md) · [clase2](teoria/clase2.md) · [clase3](teoria/clase3.md) · [clase4](teoria/clase4.md) |
+| 27/05 | RNN, LSTMs, Transformers y Atención | [clase4](teoria/clase4.md) · [clase5](teoria/clase5.md) |
+| 03/06 | BERT, embeddings contextuales, GPT, T5 | [clase6](teoria/clase6.md) |
+| 10/06 | _sin clase — trabajar en el TP_ | |
+| 17/06 | Ajuste Fino (LoRA, Adapters). Alineación y Razonamiento | [clase7](teoria/clase7.md) |
+| 24/06 | **Examen** | |
+| 01/07 | Posible recuperatorio + entrega de TPs | |
+
+## Contenido de estudio (autoestudio durante paro)
+
+- [x] [clase1](teoria/clase1.md) — Pre-procesamiento y Modelos Probabilisticos (Tokenizacion, N-Grams, Smoothing, Perplexity)
+- [x] [clase2](teoria/clase2.md) — Vectorizacion y Clasificacion Clasica (BoW, TF-IDF, BM25, Naive Bayes, SVM, LSA)
+- [ ] [clase3](teoria/clase3.md) — Word Embeddings estaticos (Word2Vec, GloVe, FastText)
+- [ ] [clase4](teoria/clase4.md) — Redes Recurrentes y ELMo (RNN, LSTM, GRU, ELMo)
+- [ ] [clase5](teoria/clase5.md) — Transformers y Atencion (Self-attention, Multi-head, Positional encoding)
+- [ ] [clase6](teoria/clase6.md) — Pre-entrenamiento y Modelos Modernos (BERT, GPT, T5)
+- [ ] [clase7](teoria/clase7.md) — Ajuste Fino y Alineacion (LoRA, Adapters, RLHF, DPO, CoT)
+
+## Datasets de referencia historicos (para el TP)
+- **IMDb / Yelp**: clasificacion de sentimiento
+- **Reuters-21578**: clasificacion de noticias por categoria
+- **20 Newsgroups**: clustering y clasificacion de foros
+- **Penn Treebank (WSJ)**: POS tagging y analisis sintactico
+- **Brown Corpus**: analisis linguistico general
+
+## Bibliografía
+- [Speech and Language Processing - Jurafsky & Martin (SLP3)](https://web.stanford.edu/~jurafsky/slp3/)
+- [NLTK Book (practico)](https://www.nltk.org/book/)
