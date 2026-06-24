@@ -5,19 +5,19 @@ Guía de estudio integrando clases 1-6. Pensada para tener solidez teórica y po
 ## Índice
 
 **Cuerpo teórico (cronológico, clase por clase):**
-- 0. El hilo conductor — 0.5 Definiciones fundamentales
-- 1. Clase 1: Preprocesamiento y Modelos Probabilísticos — *1.1 Tokenización · 1.2 Normalización · 1.3 POS/POS-Tagging · 1.4 Stopwords · 1.5 N-gramas y Markov · 1.6 Esparsidad · 1.7 Smoothing · 1.8 Perplexity*
-- 2. Clase 2: Vectorización y Clasificación Clásica — *2.1 Vector Space Model/BoW · 2.2 TF-IDF · 2.3 IR · 2.4 BM25 · 2.5 Naive Bayes · 2.6 SVM · 2.7 Generativo vs. Discriminativo · 2.8 Feature Engineering · 2.9 LSA/PPMI*
-- 3. Clase 3: Word Embeddings Estáticos — *3.1 Hipótesis distribucional · 3.2 Word2Vec · 3.3 GloVe · 3.4 FastText · 3.5 Limitación (gancho a clase 4) · 3.6 Sesgo*
-- 4. Clase 4: RNN, LSTM, GRU — *4.1 RNN · 4.2 Seq2seq · 4.3 BPTT · 4.4 Vanishing/Exploding Gradients · 4.5 LSTM · 4.6 GRU · 4.7 Bidireccionales · 4.8 ELMo · 4.9 Benchmarks*
-- 5. Clase 5: Atención y Transformers — *5.1 Atención · 5.2 Transformers · 5.3 Positional Embeddings · 5.4 Self-Attention · 5.5 Multi-Head · 5.6 Residual/LayerNorm · 5.7 Encoder · 5.8 BERT · 5.9 Encoder-Decoder · 5.10 Decoder-Only · 5.11 Landscape*
-- 6. Clase 6: Pretraining y Modelos Generativos — *6.1 Pretraining/Transfer Learning · 6.2 Tipos de preentrenamiento · 6.3 BERT/ELECTRA · 6.4 Adapters/LoRA · 6.5 Por qué encoders no generan · 6.6 BART/T5 · 6.7 GPT-1→3 · 6.8 Capacidades emergentes · 6.9 Alucinaciones · 6.10 RAG · 6.11 Costo/Destilación · 6.12 Toxicidad/Sesgo*
+- [0. El hilo conductor](#0-el-hilo-conductor-evolución-de-nlp-en-una-página) — [0.5 Definiciones fundamentales](#05-definiciones-fundamentales-y-distinciones-clave)
+- [1. Clase 1: Preprocesamiento y Modelos Probabilísticos](#1-preprocesamiento-y-modelos-probabilísticos-clase-1--18-03) — *[1.1 Tokenización](#11-tokenización) · [1.1.1 Capa Embedding de Keras](#111-la-capa-embedding-de-keras--qué-hace-y-qué-pasos-vienen-antes) · [1.2 Normalización](#12-normalización-stemming-vs-lemmatization) · [1.3 POS/POS-Tagging](#13-pos-part-of-speech-y-pos-tagging) · [1.4 Stopwords](#14-stopwords) · [1.5 N-gramas y Markov](#15-n-gramas-y-cadenas-de-markov) · [1.6 Esparsidad](#16-el-problema-central-esparsidad) · [1.7 Smoothing](#17-smoothing-soluciones-al-problema-de-esparsidad) · [1.8 Perplexity](#18-perplexity)*
+- [2. Clase 2: Vectorización y Clasificación Clásica](#2-vectorización-y-clasificación-clásica-clase-2--25-03) — *[2.1 Vector Space Model/BoW](#21-vector-space-model-y-bag-of-words) · [2.2 TF-IDF](#22-tf-idf) · [2.3 IR](#23-ir-information-retrieval) · [2.4 BM25](#24-bm25--la-mejora-probabilística-sobre-tf-idf) · [2.5 Naive Bayes](#25-naive-bayes--clasificador-generativo) · [2.6 SVM](#26-svm--clasificador-discriminativo) · [2.7 Generativo vs. Discriminativo](#27-generativo-vs-discriminativo-distinción-clave-de-examen) · [2.8 Feature Engineering](#28-feature-engineering) · [2.9 LSA/PPMI](#29-lsa-latent-semantic-analysis--el-puente-hacia-los-embeddings)*
+- [3. Clase 3: Word Embeddings Estáticos](#3-word-embeddings-estáticos-clase-3--01-04) — *[3.1 Hipótesis distribucional](#31-hipótesis-distribucional-firth-1957) · [3.2 Word2Vec](#32-word2vec-mikolov-et-al-2013) · [3.3 GloVe](#33-glove-pennington-et-al-2014) · [3.4 FastText](#34-fasttext-bojanowski-et-al-2017) · [3.5 Limitación (gancho a clase 4)](#35-la-limitación-fundamental--y-el-gancho-hacia-la-clase-4) · [3.6 Sesgo](#36-sesgo-en-embeddings)*
+- [4. Clase 4: RNN, LSTM, GRU](#4-language-models-i-rnn-lstm-gru-clase-4--27-05) — *[4.1 RNN](#41-rnn--arquitectura-base) · [4.2 Seq2seq](#42-seq2seq-encoder-decoder) · [4.3 BPTT](#43-backpropagation-through-time-bptt) · [4.4 Vanishing/Exploding Gradients](#44-exploding--vanishing-gradients) · [4.5 LSTM](#45-lstm-hochreiter--schmidhuber-1997) · [4.6 GRU](#46-gru-cho-et-al-2014) · [4.7 Bidireccionales](#47-rnn-bidireccionales) · [4.8 ELMo](#48-elmo--primer-paso-hacia-embeddings-contextuales) · [4.9 Benchmarks](#49-tareas-de-referencia-vocabulario-de-benchmarks)*
+- [5. Clase 5: Atención y Transformers](#5-language-models-ii-atención-y-transformers-clase-5--03-06) — *[5.1 Atención](#51-mecanismo-de-atención--resuelve-el-cuello-de-botella) · [5.2 Transformers](#52-transformers-vaswani-et-al-2017--sacar-la-rnn-del-medio) · [5.3 Positional Embeddings](#53-positional-embeddings) · [5.4 Self-Attention](#54-self-attention--el-mecanismo-central) · [5.5 Multi-Head](#55-multiheaded-self-attention) · [5.6 Residual/LayerNorm](#56-residual-connections-y-layer-normalization) · [5.7 Encoder](#57-encoder) · [5.8 BERT](#58-bert--masked-language-modeling) · [5.9 Encoder-Decoder](#59-encoder-decoder-transformer) · [5.10 Decoder-Only](#510-decoder-only) · [5.11 Landscape](#511-landscape-mapa-mental-para-el-examen)*
+- [6. Clase 6: Pretraining y Modelos Generativos](#6-pretraining-y-modelos-generativos-clase-6--10-06) — *[6.1 Pretraining/Transfer Learning](#61-pretraining-y-transfer-learning) · [6.2 Tipos de preentrenamiento](#62-tipos-de-preentrenamiento-tabla-de-examen) · [6.3 BERT/ELECTRA](#63-bert-en-detalle--electra) · [6.4 Adapters/LoRA](#64-adapters-y-lora--fine-tuning-eficiente) · [6.5 Por qué encoders no generan](#65-por-qué-los-encoders-no-generan-texto-recordatorio--razón-formal) · [6.6 BART/T5](#66-bart-y-t5--denoising-en-vez-de-lm-puro) · [6.7 GPT-1→3](#67-gpt-1--gpt-2--gpt-3-la-línea-de-escalado) · [6.8 Capacidades emergentes](#68-capacidades-emergentes) · [6.9 Alucinaciones](#69-alucinaciones) · [6.10 RAG](#610-rag-retrieval-augmented-generation) · [6.11 Costo/Destilación](#611-costo-destilación-early-exit) · [6.12 Toxicidad/Sesgo](#612-toxicidad-y-sesgo)*
 
 **Anexos de repaso (no narrativos, para consulta rápida):**
-- 7. Diagramas de Arquitecturas (Mermaid, uno por arquitectura clave)
-- 8. Preguntas guía (autoexamen)
-- 9. Glosario rápido de fórmulas (cheat-sheet)
-- 10. Respuestas al autoexamen
+- [7. Diagramas de Arquitecturas](#7-diagramas-de-arquitecturas) (Mermaid, uno por arquitectura clave) — *[7.1 Skip-gram](#71-skip-gram-word2vec) · [7.2 RNN](#72-rnn-desenrollada-en-el-tiempo) · [7.3 LSTM](#73-celda-lstm-un-solo-paso-de-tiempo) · [7.4 GRU](#74-celda-gru-un-solo-paso-de-tiempo) · [7.5 Seq2seq+Atención](#75-seq2seq-con-atención-encoder-decoder--rnn) · [7.6 Self-Attention](#76-self-attention-un-bloque-transformer) · [7.7 Encoder Transformer](#77-bloque-encoder-del-transformer-n) · [7.8 Encoder-Decoder](#78-bloque-decoder-y-transformer-encoder-decoder-completo) · [7.9 BERT](#79-bert-encoder-only--inputoutput) · [7.10 GPT](#710-gpt-decoder-only--generación-autorregresiva) · [7.11 ELMo](#711-elmo-bi-lstm-apilado) · [7.12 LoRA](#712-lora-fine-tuning-eficiente)*
+- [8. Preguntas guía (autoexamen)](#8-preguntas-guía-para-repasar-auto-examen)
+- [9. Glosario rápido de fórmulas (cheat-sheet)](#9-glosario-rápido-de-fórmulas-clave-cheat-sheet)
+- [10. Respuestas al autoexamen](#10-respuestas-al-autoexamen-sección-8)
 
 ---
 
@@ -110,6 +110,81 @@ Antes de poder modelar significado, hay que decidir **qué es una unidad de text
   - Se ejecuta sobre bytes UTF-8 → vocabularios de 50K-200K tokens.
   - **Problema multilingüe**: tokenizadores entrenados mayormente en inglés sobre-segmentan otros idiomas (el español usa más tokens que el inglés para la misma oración) → esto afecta directamente el costo de inferencia de LLMs en español.
 
+**Código (BPE con la librería `tokenizers` de Hugging Face):**
+```python
+from tokenizers import Tokenizer, models, trainers, pre_tokenizers
+
+tokenizer = Tokenizer(models.BPE())
+tokenizer.pre_tokenizer = pre_tokenizers.Whitespace()
+trainer = trainers.BpeTrainer(vocab_size=5000, min_frequency=2)
+
+# Entrenamiento: aprende los merges más frecuentes a partir de texto crudo
+tokenizer.train(files=["corpus.txt"], trainer=trainer)
+
+# Uso: convierte una oración nueva en subword-tokens usando esos merges
+output = tokenizer.encode("el preprocesamiento es fundamental")
+print(output.tokens)  # ej: ['el', 'pre', '##proces', '##amiento', 'es', 'fund', '##amental']
+print(output.ids)     # los ids enteros correspondientes en el vocabulario
+```
+Input: texto crudo (string). Output: lista de subword-tokens (strings) y sus ids enteros — esto es lo que luego se convierte en un tensor de enteros para alimentar cualquier red (embedding lookup).
+
+### 1.1.1 La capa `Embedding` de Keras — qué hace, y qué pasos vienen *antes*
+Punto de confusión frecuente: la capa `Embedding` **no tokeniza y no construye vocabulario** — eso ya tuvo que pasar antes (1.1). La capa `Embedding` es solamente una **tabla de búsqueda entrenable** ($E\in\mathbb{R}^{|V|\times d}$, la misma matriz de la sección [0.5](#05-definiciones-fundamentales-y-distinciones-clave)): recibe **ids enteros** y devuelve, para cada id, la fila correspondiente de $E$ — ningún cómputo más complejo que eso.
+
+**Input de la capa**: tensor `(batch, T)` de **enteros** (ids de token, no texto, no one-hot). `batch` = cantidad de secuencias procesadas juntas; `T` = cantidad de pasos de tiempo (tokens) por secuencia — todas deben tener el mismo largo dentro de un batch, por eso se aplica **padding** (rellenar con un id reservado, típicamente 0) a las secuencias más cortas.
+
+**Output de la capa**: tensor `(batch, T, d)` — por cada id de entrada, un vector denso de $d$ dimensiones. Se agrega una dimensión nueva al final: cada entero escalar se "expande" a su embedding.
+
+**El pipeline completo, de texto crudo a la entrada de la red** (la parte que la capa `Embedding` *no* hace):
+1. **Tokenizar** el texto (1.1) → lista de tokens/subwords.
+2. **Construir el vocabulario**: un diccionario `token -> id entero` (a partir de los tokens más frecuentes del corpus de entrenamiento).
+3. **Convertir cada secuencia** de tokens a su secuencia de ids usando ese diccionario (un token nunca visto se mapea a un id especial `[UNK]`/`<unk>`).
+4. **Padding/truncado**: forzar que todas las secuencias del batch tengan el mismo largo $T$.
+
+Recién con esos ids `(batch, T)` ya construidos se llama a la capa `Embedding`. En Keras, los pasos 1-4 se hacen con `TextVectorization` (o `Tokenizer` + `pad_sequences` en versiones más viejas) — es una capa/utilidad **distinta**, que se ejecuta *antes*:
+
+```python
+from tensorflow.keras.layers import TextVectorization, Embedding
+import tensorflow as tf
+
+textos = ["el gato come pescado", "el perro come carne y duerme"]
+
+# Paso 1-4: tokeniza, construye vocabulario, convierte a ids, aplica padding/truncado
+vectorizer = TextVectorization(max_tokens=10_000, output_sequence_length=6)
+vectorizer.adapt(textos)  # "entrena" el vocabulario mirando el corpus (no entrena pesos, solo cuenta frecuencias)
+
+ids = vectorizer(textos)
+print(ids)
+# tensor (batch=2, T=6) de enteros, ej:
+# [[ 4  2  3  5  0  0]
+#  [ 4  6  3  7  8  9]]
+# (0 = id de padding; cada entero indexa una palabra del vocabulario aprendido en .adapt())
+
+# Paso 5 (esto sí es la capa Embedding): ids enteros -> vectores densos
+emb = Embedding(input_dim=10_000, output_dim=64)  # |V|=10000, d=64
+x = emb(ids)
+print(x.shape)  # (2, 6, 64) -- por cada uno de los 6 ids, un vector de 64 dimensiones
+```
+
+**Resumen del flujo**: `texto crudo → tokenización + vocabulario (TextVectorization) → ids enteros (batch, T) → Embedding (lookup en E) → vectores densos (batch, T, d) → RNN/LSTM/Transformer...`. La capa `Embedding` es el puente entre "palabras representadas como índices discretos" (sin geometría, ver distinción one-hot vs. embedding en [0.5](#05-definiciones-fundamentales-y-distinciones-clave)) y "palabras representadas como vectores densos" que el resto de la red puede operar matemáticamente — y sus pesos (la matriz $E$) se entrenan junto con el resto del modelo, salvo que se inicialicen con embeddings preentrenados (Word2Vec/GloVe, ver 3.2-3.3) y se congelen.
+
+**¿Por qué `.adapt()` depende de mi corpus — no hay algo genérico?** `TextVectorization.adapt()` construye el vocabulario **desde cero**, contando frecuencias en el texto que le pasés — el id que termina asignándole a cada palabra depende de ese corpus puntual. Esto está bien si entrenás una red **desde cero**, pero es un problema si vas a hacer **fine-tuning de un modelo preentrenado** (BERT, GPT-2, T5...): ese modelo ya tiene una matriz $E$ entrenada para un vocabulario fijo específico, y los ids que generaría tu propio `.adapt()` no van a coincidir con los que esa matriz espera — le estarías pasando ids arbitrarios a una tabla entrenada con otro mapeo palabra→id, dejándola inútil.
+
+La solución no es "generizar" `TextVectorization`, sino usar el **tokenizer que viene pegado al modelo preentrenado**: el trainer de BPE/WordPiece (ver 1.1) se corrió **una sola vez**, sobre un corpus masivo y genérico (Wikipedia, Common Crawl, etc.), y ese vocabulario fijo se reusa siempre — nunca se reentrena por dataset de fine-tuning. Por eso, al cargar un modelo con `transformers`, el tokenizer no tiene `.adapt()` ni `.fit()`:
+
+```python
+from transformers import AutoTokenizer
+
+tokenizer = AutoTokenizer.from_pretrained("bert-base-multilingual-cased")
+# vocabulario y merges de BPE/WordPiece ya aprendidos una sola vez, sobre un corpus genérico
+# -- no se reentrena: los ids resultantes son EXACTAMENTE los que la matriz E de BERT espera
+
+ids = tokenizer(["el gato come pescado"], return_tensors="pt", padding=True)
+print(ids["input_ids"])
+```
+
+**Regla práctica**: `TextVectorization.adapt()` → cuando entrenás una arquitectura nueva desde cero con tu propio vocabulario. `AutoTokenizer.from_pretrained(...)` → cuando vas a usar o fine-tunear un modelo preentrenado, porque el tokenizer y la matriz de embeddings son una unidad indivisible, producto del mismo entrenamiento original.
+
 ### 1.2 Normalización: Stemming vs. Lemmatization
 Una vez que el texto está tokenizado, el siguiente problema es que la misma palabra puede aparecer en muchas formas distintas ("correr", "corriendo", "corrió") — la normalización busca reducir esa variabilidad.
 
@@ -169,6 +244,28 @@ $$\text{PP}(W) = P(w_1,\ldots,w_N)^{-1/N} = 2^{-\frac{1}{N}\sum \log_2 P(w_i\mid
 
 Es el "factor de ramificación efectivo": PP=100 ≈ tan confundido como elegir entre 100 opciones equiprobables. Menor es mejor. Equivale a $2^H$ (H = entropía cruzada). **Solo comparable entre modelos con el mismo vocabulario** — un detalle que suele preguntarse.
 
+**Código (modelo de bigramas con NLTK — MLE, smoothing y perplexity):**
+```python
+from nltk.lm import Laplace
+from nltk.lm.preprocessing import padded_everygram_pipeline
+from nltk.util import ngrams
+
+corpus = [["el", "gato", "come"], ["el", "perro", "come"], ["el", "gato", "duerme"]]
+n = 2  # bigramas
+
+train_data, vocab = padded_everygram_pipeline(n, corpus)
+model = Laplace(n)        # add-one smoothing, ver 1.7
+model.fit(train_data, vocab)
+
+# Input: contexto (tupla de n-1 palabras) -> Output: P(palabra | contexto)
+print(model.score("come", ["el", "gato"]))   # P(come | el, gato)
+
+test = [["el", "perro", "duerme"]]
+test_data, _ = padded_everygram_pipeline(n, test)
+print(model.perplexity(list(test_data)[0]))  # perplexity sobre la secuencia de test
+```
+Input: una lista de oraciones tokenizadas (listas de strings). Output de `.score`: un float entre 0 y 1 (la probabilidad condicional estimada); output de `.perplexity`: un float (menor = mejor, ver 1.8).
+
 ---
 
 ## 2. Vectorización y Clasificación Clásica (Clase 2 — 25-03)
@@ -182,6 +279,22 @@ Una vez tokenizado el texto, hace falta convertirlo en **números** para que un 
 - **Similitud coseno**: $\cos(a,b) = \frac{a\cdot b}{\|a\|\|b\|}$ — mide ángulo, ignora magnitud (longitud del documento).
   - $a,b$: dos vectores de documento (p. ej. BoW o TF-IDF). $a\cdot b$: producto punto (suma de productos componente a componente). $\|a\|,\|b\|$: norma (longitud euclídea) de cada vector — dividir por ellas elimina el efecto de que un documento sea más largo y por eso tenga conteos más grandes.
 
+**Código (BoW + similitud coseno con scikit-learn):**
+```python
+from sklearn.feature_extraction.text import CountVectorizer
+from sklearn.metrics.pairwise import cosine_similarity
+
+docs = ["el gato come pescado", "el perro come carne", "el gato duerme todo el día"]
+
+vectorizer = CountVectorizer()
+X = vectorizer.fit_transform(docs)   # input: lista de strings (documentos)
+# X: matriz sparse de forma (n_documentos, |V|) — cada fila es el vector BoW de un documento
+
+print(vectorizer.get_feature_names_out())  # el vocabulario (las dimensiones del vector)
+print(cosine_similarity(X[0], X[1]))       # output: similitud coseno entre doc 0 y doc 1, en [0,1]
+```
+Input: lista de documentos (strings). Output de `fit_transform`: matriz sparse `(n_docs, |V|)` de conteos; output de `cosine_similarity`: un escalar (o matriz de escalares) en `[0,1]`.
+
 ### 2.2 TF-IDF
 El BoW de la sección anterior pondera todas las palabras por igual conteo crudo — TF-IDF refina eso dándole menos peso a las palabras que aparecen en casi todos los documentos (poco informativas) y más peso a las raras (distintivas).
 
@@ -193,6 +306,21 @@ Combina frecuencia local (TF) con rareza global (IDF): términos que aparecen en
 **Cómo se construye el vector de un documento a partir de esto**: TF-IDF$(t,d)$ es un score para **un solo término** $t$ en **un solo documento** $d$ — no es, por sí solo, una representación de todo el documento. Para obtener el vector del documento $d$ (el de la sección anterior, en $\mathbb{R}^{|V|}$), se calcula TF-IDF$(t,d)$ **para cada término $t$ del vocabulario** y se usa ese valor como la componente correspondiente del vector:
 $$\vec{d} = \big(\text{TF-IDF}(t_1,d),\ \text{TF-IDF}(t_2,d),\ \ldots,\ \text{TF-IDF}(t_{|V|},d)\big)$$
 Por eso la fórmula toma $(t,d)$: $t$ es la variable que recorre el vocabulario para llenar cada dimensión del vector; $d$ fija a qué documento pertenece ese vector. Para comparar dos documentos (o un documento contra una query, tratada también como un "documento" chico) se construyen sus vectores así y se aplica **similitud coseno** entre ambos.
+
+**Código (TF-IDF con scikit-learn):**
+```python
+from sklearn.feature_extraction.text import TfidfVectorizer
+
+docs = ["el gato come pescado", "el perro come carne", "el gato duerme todo el día"]
+
+vectorizer = TfidfVectorizer()
+X = vectorizer.fit_transform(docs)  # input: lista de strings
+# X: matriz sparse (n_docs, |V|), cada componente es TF-IDF(t,d) (normalizada por fila por defecto)
+
+query_vec = vectorizer.transform(["gato duerme"])  # proyecta una query nueva al mismo espacio
+print((X @ query_vec.T).toarray())  # output: score de similitud (producto punto) de cada doc vs. la query
+```
+Input: documentos como strings (entrenamiento) y query como string (`transform`, reusando el vocabulario aprendido). Output: matriz sparse de pesos TF-IDF, dimensión `(n_docs, |V|)`.
 
 ### 2.3 IR (Information Retrieval)
 TF-IDF se usó arriba para construir vectores de documento — pero el motivo práctico para construir esos vectores es resolver una tarea concreta: la búsqueda. Esa tarea se llama IR.
@@ -224,10 +352,47 @@ Modela $P(X,Y)$ vía Bayes: $\hat{Y}=\arg\max_y P(X\mid Y=y)P(Y=y)$.
 **Asunción "naive"**: independencia condicional entre features dada la clase: $P(X\mid Y)=\prod_i P(x_i\mid Y)$. Viola la realidad del lenguaje (las palabras no son independientes) pero funciona bien con pocos datos. Requiere Laplace smoothing para palabras no vistas en una clase (si no, probabilidad 0 anula todo el producto).
 - $x_i$: la $i$-ésima feature/palabra del documento $X$. El producto $\prod_i P(x_i\mid Y)$ asume que, conocida la clase, la probabilidad de cada palabra es independiente de las demás — esa es la simplificación "naive".
 
+**Código (Naive Bayes para clasificación de texto con scikit-learn):**
+```python
+from sklearn.feature_extraction.text import CountVectorizer
+from sklearn.naive_bayes import MultinomialNB
+
+docs = ["me encantó la película", "pésima actuación, no la recomiendo",
+        "una historia hermosa", "aburrida y mal hecha"]
+labels = ["pos", "neg", "pos", "neg"]
+
+vec = CountVectorizer().fit(docs)
+X = vec.transform(docs)                      # input: vectores BoW, ver 2.1
+clf = MultinomialNB(alpha=1.0)                 # alpha=1.0 = Laplace smoothing (ver 1.7)
+clf.fit(X, labels)
+
+nuevo = vec.transform(["historia aburrida"])
+print(clf.predict(nuevo))  # output: la clase predicha, ej. ['neg']
+```
+Input: matriz BoW `(n_docs, |V|)` + vector de etiquetas. Output de `predict`: la clase con mayor $P(X\mid Y)P(Y)$ (arg max), ver fórmula de 2.5.
+
 ### 2.6 SVM — clasificador discriminativo
 Naive Bayes es generativo (modela cómo se generan los datos dada la clase). El otro gran enfoque de clasificación es discriminativo (separar directamente las clases) — su exponente clásico para texto es SVM.
 
 Busca el hiperplano que **maximiza el margen** entre clases; solo los **vectores de soporte** (puntos más cercanos al hiperplano) determinan su posición. **Kernel trick** (lineal, polinomial, RBF) permite separar datos no linealmente separables sin calcular la transformación explícita. Fue el método más exitoso para texto antes del deep learning (datos sparse de alta dimensión → SVM lineal funciona muy bien).
+
+**Código (SVM lineal sobre TF-IDF con scikit-learn):**
+```python
+from sklearn.feature_extraction.text import TfidfVectorizer
+from sklearn.svm import LinearSVC
+
+docs = ["me encantó la película", "pésima actuación, no la recomiendo",
+        "una historia hermosa", "aburrida y mal hecha"]
+labels = ["pos", "neg", "pos", "neg"]
+
+vec = TfidfVectorizer().fit(docs)
+X = vec.transform(docs)              # input: vectores TF-IDF, ver 2.2
+clf = LinearSVC()
+clf.fit(X, labels)
+
+print(clf.predict(vec.transform(["historia hermosa"])))  # output: ej. ['pos']
+```
+Input: matriz TF-IDF `(n_docs, |V|)` + etiquetas. Output de `predict`: la clase del lado del hiperplano donde cae el nuevo punto.
 
 ### 2.7 Generativo vs. Discriminativo (distinción clave de examen)
 Ya vimos un ejemplo de cada tipo (Naive Bayes y SVM) — esta sección formaliza qué significa exactamente esa distinción, porque es fácil quedarse solo con los nombres sin entender la diferencia matemática real.
@@ -267,6 +432,22 @@ Como cierre de la clase, LSA muestra que es posible automatizar parte de esa rep
 
 Punto clave para no confundir con Word2Vec (3.2): SVD se corre **una sola vez** sobre la estadística global de todo el corpus, y de ahí salen simultáneamente los vectores de *todos* los términos y *todos* los documentos — no es un proceso iterativo de entrenamiento como en una red neuronal.
 
+**Código (LSA con TruncatedSVD de scikit-learn):**
+```python
+from sklearn.feature_extraction.text import TfidfVectorizer
+from sklearn.decomposition import TruncatedSVD
+
+docs = ["el gato come pescado", "el perro come carne",
+        "el gato y el perro duermen juntos", "compré acciones del banco"]
+
+X = TfidfVectorizer().fit_transform(docs)  # input: matriz término-documento (n_docs, |V|), ver 2.2
+svd = TruncatedSVD(n_components=2)          # k=2 dimensiones latentes
+doc_vectors = svd.fit_transform(X)          # output: V_k, vectores de documento densos (n_docs, k)
+term_vectors = svd.components_.T            # output: U_k, vectores de término densos (|V|, k)
+print(doc_vectors.shape, term_vectors.shape)
+```
+Input: matriz sparse término-documento `(n_docs, |V|)`. Output: `doc_vectors` `(n_docs, k)` y `term_vectors` `(|V|, k)` — vectores densos de baja dimensión, comparables por similitud coseno (ver 2.9).
+
 **PPMI** como alternativa de ponderación a TF-IDF para matrices término-término:
 $$\text{PMI}(w,c)=\log_2\frac{P(w,c)}{P(w)P(c)}, \qquad \text{PPMI}=\max(\text{PMI},0)$$
 - $w$: una palabra (word). $c$: una palabra de contexto (context). $P(w,c)$: probabilidad conjunta de que $w$ y $c$ co-ocurran (en la misma ventana/documento). $P(w)$, $P(c)$: probabilidades marginales de cada una por separado. Si $w$ y $c$ fueran independientes, $P(w,c)=P(w)P(c)$ y el PMI sería 0 — el PMI mide cuánto más (o menos) co-ocurren de lo que la independencia predeciría. PPMI trunca los valores negativos a 0 porque las asociaciones negativas (co-ocurrencias menos frecuentes que el azar) suelen ser ruido estadístico poco confiable con datos limitados.
@@ -296,6 +477,28 @@ Aplicando esa hipótesis distribucional, Word2Vec entrena una red neuronal simpl
   - $k$: cantidad de palabras "negativas" (no relacionadas) muestreadas aleatoriamente por cada ejemplo positivo real. $f(w)$: frecuencia de la palabra $w$ en el corpus. El exponente $3/4$ achata la distribución de frecuencias — sin él, las palabras muy frecuentes ("the", "de") dominarían casi todo el muestreo negativo.
 - **Analogías vectoriales**: $v_{\text{king}}-v_{\text{man}}+v_{\text{woman}}\approx v_{\text{queen}}$. Emerge del entrenamiento, no está programado — es la evidencia más citada de que estos vectores capturan estructura semántica real.
 
+**Código (Word2Vec con gensim):**
+```python
+from gensim.models import Word2Vec
+
+corpus = [["el", "gato", "come", "pescado"],
+          ["el", "perro", "come", "carne"],
+          ["el", "gato", "y", "el", "perro", "duermen"]]
+
+model = Word2Vec(
+    sentences=corpus,   # input: lista de oraciones tokenizadas (listas de strings)
+    vector_size=100,    # d: dimensión del embedding
+    window=2,           # c: radio de la ventana de contexto, ver fórmula skip-gram
+    sg=1,                # sg=1 -> skip-gram, sg=0 -> CBOW
+    negative=5,          # k: cantidad de negativos por ejemplo positivo
+    min_count=1
+)
+
+vec_gato = model.wv["gato"]            # output: vector denso de dimensión 100 para "gato"
+print(model.wv.most_similar("gato"))   # palabras más cercanas por coseno
+```
+Input: corpus tokenizado (oraciones como listas de palabras). Output: `model.wv[palabra]` da un vector denso `(d,)` por cada palabra-tipo del vocabulario — la fila correspondiente de la matriz $W$ (ver 3.2).
+
 ### 3.3 GloVe (Pennington et al., 2014)
 Word2Vec entrena solo con ventanas locales, ignorando las estadísticas globales de co-ocurrencia que sí usaba LSA — GloVe busca combinar ambas ventajas.
 
@@ -305,6 +508,18 @@ $$J=\sum_{i,j} f(X_{ij})\left(v_i^\top v_j + b_i+b_j-\log X_{ij}\right)^2$$
 
 $f$ pondera menos las co-ocurrencias muy frecuentes. Suele superar a Word2Vec en benchmarks de analogía/similitud porque usa la matriz de co-ocurrencia completa en vez de solo ventanas locales.
 
+**Código (cargar vectores GloVe preentrenados y usarlos):**
+```python
+import gensim.downloader as api
+
+# Carga vectores GloVe ya entrenados (no se entrena de nuevo, se descarga el resultado de la fórmula J)
+glove = api.load("glove-wiki-gigaword-100")  # d=100
+
+vec_rey = glove["king"]                       # output: vector denso (100,)
+print(glove.most_similar(positive=["king", "woman"], negative=["man"]))  # analogía: ≈ "queen"
+```
+Input: una palabra (string) que indexa la tabla de vectores ya entrenada. Output: vector denso `(d,)`, idéntico en estructura al de Word2Vec — la diferencia está en *cómo* se entrenó (ver 3.3), no en el objeto final.
+
 **Diferencia clave con Word2Vec sobre "de dónde sale la matriz"**: en GloVe no hay capa de predicción/softmax que después se descarte. Los vectores $v_i$ (y $v_j$) **son** directamente los parámetros que se optimizan desde el principio para que $v_i^\top v_j$ reconstruya $\log X_{ij}$ — no son un subproducto de resolver otra tarea, son el objetivo explícito de la optimización.
 
 ### 3.4 FastText (Bojanowski et al., 2017)
@@ -312,6 +527,24 @@ Tanto Word2Vec como GloVe tratan cada palabra como una unidad atómica, sin mira
 
 Cada palabra = suma de embeddings de sus **n-gramas de caracteres**. Resuelve dos problemas: **OOV** (una palabra nueva puede construirse de subwords conocidos) y **morfología rica** (español, alemán). Esta misma idea de subwords reaparece después en BPE (clase 1) y en cómo los Transformers tokenizan.
 - Arquitectura: la misma red skip-gram de Word2Vec ($W$/$W'$, ver 3.2), pero la fila de $W$ de una palabra **no** es un parámetro entrenado directamente — se **construye sumando** los vectores de sus n-gramas de caracteres, que sí son los parámetros entrenados (en una tabla más chica, indexada por n-grama de caracteres en vez de por palabra completa). Por eso una palabra nunca vista puede tener embedding: se descompone en sus n-gramas, que probablemente ya fueron vistos en otras palabras.
+
+**Código (FastText con gensim):**
+```python
+from gensim.models import FastText
+
+corpus = [["el", "gato", "come", "pescado"], ["el", "perro", "come", "carne"]]
+
+model = FastText(
+    sentences=corpus,
+    vector_size=100,
+    window=2,
+    min_n=3, max_n=6   # rango de tamaño de los n-gramas de caracteres por palabra
+)
+
+print(model.wv["gato"].shape)        # output: (100,) — embedding de una palabra vista
+print(model.wv["gatito"].shape)      # output: (100,) — funciona incluso OOV, se compone de subwords
+```
+Input: corpus tokenizado. Output: vector denso `(d,)` por palabra, incluso para palabras fuera del vocabulario de entrenamiento (a diferencia de Word2Vec/GloVe puros).
 
 ### 3.5 La limitación fundamental — y el gancho hacia la clase 4
 Word2Vec, GloVe y FastText, a pesar de sus diferencias, comparten una limitación de fondo que ninguno resuelve.
@@ -343,6 +576,30 @@ $W,U,V$ son matrices **compartidas** en todos los pasos de tiempo — esto es cl
 - **Generación de texto**: samplear $\hat y_t$ y realimentarlo como $x_{t+1}$ — la misma idea que la generación por cadena de Markov de la clase 1, pero ahora la distribución viene de una red neuronal entrenada, no de conteos, lo que resuelve la generalización a secuencias nunca vistas.
 - **Clasificación**: usar el último hidden state o un mean/max de todos los $h_t$.
 - **Multi-layer RNN**: apilar capas; cada capa procesa la salida de la anterior.
+
+**Código (capa SimpleRNN con Keras/TensorFlow):**
+```python
+import tensorflow as tf
+from tensorflow.keras.layers import Embedding, SimpleRNN, Dense
+from tensorflow.keras import Sequential
+
+vocab_size, d, hidden_dim, T = 10_000, 64, 32, 20  # |V|, dim. embedding, dim. hidden, largo secuencia
+
+model = Sequential([
+    Embedding(input_dim=vocab_size, output_dim=d, input_length=T),
+    # input de la capa Embedding: (batch, T) enteros (ids de tokens)
+    # output de la capa Embedding: (batch, T, d) -- un vector x_t por cada paso de tiempo
+
+    SimpleRNN(hidden_dim, return_sequences=False),
+    # input: (batch, T, d) -- la secuencia completa de embeddings x_1..x_T
+    # output (return_sequences=False): (batch, hidden_dim) -- solo el ÚLTIMO h_T (para clasificación)
+    # si return_sequences=True: output (batch, T, hidden_dim) -- todos los h_1..h_T (para etiquetado por token)
+
+    Dense(1, activation="sigmoid")  # clasificación binaria a partir de h_T
+])
+model.summary()
+```
+Input de la red completa: `(batch, T)` — secuencias de ids de tokens, una muestra por fila, un paso de tiempo por columna. Output: `(batch, 1)` — una probabilidad por muestra. La capa `SimpleRNN` en sí misma recibe `(batch, T, features)` y produce `(batch, hidden_dim)` o `(batch, T, hidden_dim)` según `return_sequences`.
 
 ### 4.2 Seq2seq (Encoder-Decoder)
 La RNN básica de 4.1 ya permite generar y clasificar; el siguiente paso es usar dos RNN para tareas donde la entrada y la salida son secuencias distintas (traducción, resumen).
@@ -383,6 +640,24 @@ Introduce el **cell state** $c_t$ (memoria de largo plazo), separado del hidden 
 
   **Variables comunes a las 4 ecuaciones**: $[h_{t-1},x_t]$: concatenación del hidden state anterior con la entrada actual (un solo vector más largo). $\sigma$: sigmoide, aplasta cada gate a valores entre 0 (cerrado, "no dejar pasar nada") y 1 (abierto, "dejar pasar todo"). $W_f,W_i,W_c,W_o$ y $b_f,b_i,b_c,b_o$: matrices de pesos y biases propios de cada gate, todos aprendidos. $f_t$: forget gate, decide qué fracción de la memoria anterior $c_{t-1}$ se retiene. $i_t$: input gate, decide qué fracción de la información nueva $\tilde c_t$ se incorpora. $\tilde c_t$: contenido candidato (información nueva propuesta, antes de filtrarla). $c_t$: cell state (memoria de largo plazo) actualizado — nótese el $\odot$ (producto elemento a elemento, no producto matricial). $o_t$: output gate, decide qué parte de $c_t$ se expone como hidden state visible $h_t$.
 
+**Código (capa LSTM con Keras/TensorFlow):**
+```python
+from tensorflow.keras.layers import Embedding, LSTM, Dense
+from tensorflow.keras import Sequential
+
+vocab_size, d, hidden_dim, T = 10_000, 64, 32, 20
+
+model = Sequential([
+    Embedding(vocab_size, d, input_length=T),     # (batch, T) -> (batch, T, d)
+    LSTM(hidden_dim, return_sequences=True),
+    # input: (batch, T, d) -- secuencia de embeddings x_1..x_T
+    # output (return_sequences=True): (batch, T, hidden_dim) -- un h_t por paso, útil p.ej. para POS-tagging (1.3)
+    Dense(5, activation="softmax")  # 5 clases POS, una predicción por cada paso de tiempo
+])
+model.summary()
+```
+Input: `(batch, T, d)` — para cada muestra del batch, una secuencia de $T$ embeddings de $d$ dimensiones. Output con `return_sequences=True`: `(batch, T, hidden_dim)`, es decir un hidden state $h_t$ (que ya incorpora cell state $c_t$ internamente, ver fórmulas arriba) por cada paso de tiempo — ideal para tareas de etiquetado de secuencias (1.3, 4.7). Con `return_sequences=False` (default) solo se devuelve $h_T$, el último — ideal para clasificación de la secuencia completa.
+
 ### 4.6 GRU (Cho et al., 2014)
 GRU es una variante posterior de LSTM que busca el mismo efecto (mitigar vanishing gradient) con menos compuertas y parámetros.
 
@@ -390,6 +665,21 @@ Más simple, menos parámetros: **reset gate** $r_t$, **update gate** $z_t$, $\t
 - $r_t$: reset gate — controla cuánto del hidden state anterior $h_{t-1}$ se usa al calcular el contenido candidato $\tilde h_t$ (si $r_t\approx 0$, "ignora el pasado" para proponer lo nuevo). $z_t$: update gate — controla el balance final entre quedarse con $h_{t-1}$ (si $z_t\approx 0$) o adoptar el candidato $\tilde h_t$ (si $z_t\approx 1$); cumple a la vez el rol del forget e input gate de LSTM. $\tilde h_t$: contenido candidato. $W_h$: matriz de pesos para calcular ese candidato. A diferencia de LSTM, GRU no tiene un cell state $c_t$ separado — solo $h_t$.
 
 No hay evidencia fuerte de que GRU o LSTM sea consistentemente mejor; convención: LSTM por defecto, GRU si se necesita eficiencia.
+
+**Código (capa GRU con Keras/TensorFlow):**
+```python
+from tensorflow.keras.layers import Embedding, GRU, Dense
+from tensorflow.keras import Sequential
+
+model = Sequential([
+    Embedding(10_000, 64, input_length=20),
+    GRU(32, return_sequences=False),
+    # input: (batch, T=20, d=64); output: (batch, hidden_dim=32) -- solo h_T (3 matrices de peso, no 4 como LSTM)
+    Dense(1, activation="sigmoid")
+])
+model.summary()
+```
+La interfaz input/output de `GRU` es idéntica a `LSTM` (mismo `(batch, T, features)` -> `(batch, hidden_dim)` o `(batch, T, hidden_dim)`) — la diferencia está adentro de la celda (sin cell state separado, ver 4.6), no en la forma de los tensores que entran/salen.
 
 ### 4.7 RNN Bidireccionales
 4.1-4.6 cubrieron cómo procesar secuencias hacia adelante y mitigar vanishing gradient. Pero hay tareas (clasificación, NER, POS-tagging — ver 1.3) donde no se necesita generar y sí conviene ver la oración completa, no solo el pasado: para eso existen las RNN bidireccionales.
@@ -401,6 +691,23 @@ Dos RNNs en paralelo (izq→der y der→izq), outputs concatenados. **No sirve p
 - La RNN **backward** (der→izq) corre exactamente la misma recurrencia pero empezando desde el final: $h_t^{\leftarrow}=f(h_{t+1}^{\leftarrow},x_t)$, así que $h_t^{\leftarrow}$ depende (en cadena) de **todos** los tokens $x_T,\ldots,x_t$ — todo el futuro de la oración.
 - El output en la posición $t$ es la concatenación $[h_t^{\rightarrow};h_t^{\leftarrow}]$ — combina, en principio, información de la **oración entera** (pasado completo + futuro completo), no de una ventana acotada de $k$ palabras a cada lado.
 - **Matiz importante**: "en principio" porque en la práctica esa dependencia se degrada con la distancia — es la misma limitación de vanishing gradient de 4.4: cuanto más lejos está un token, más débil (no nula, pero débil) es su influencia real en $h_t$. A diferencia de la ventana de Word2Vec (un corte duro, exactamente $\pm c$ y nada más allá), la RNN bidireccional no tiene un límite duro de cuántos tokens considera — tiene un límite *gradual*, donde la influencia de tokens lejanos decae pero nunca se corta abruptamente a cero.
+
+**Código (Bi-LSTM con Keras/TensorFlow, para POS-tagging):**
+```python
+from tensorflow.keras.layers import Embedding, LSTM, Bidirectional, Dense
+from tensorflow.keras import Sequential
+
+n_pos_tags = 12
+model = Sequential([
+    Embedding(10_000, 64, input_length=20),                       # (batch, T) -> (batch, T, 64)
+    Bidirectional(LSTM(32, return_sequences=True)),
+    # input: (batch, T, 64). Internamente corre dos LSTMs (forward y backward, ver 4.7) y concatena.
+    # output: (batch, T, 64) -- 32 (forward) + 32 (backward) por cada paso de tiempo t
+    Dense(n_pos_tags, activation="softmax")  # una predicción POS por cada token, usando contexto completo
+])
+model.summary()
+```
+Input: `(batch, T, d)`. Output: `(batch, T, 2*hidden_dim)` — el doble de dimensión que una LSTM unidireccional, porque cada posición concatena $h_t^{\rightarrow}$ y $h_t^{\leftarrow}$ (ver 4.7). Por eso es la arquitectura natural para POS-tagging/NER (1.3): cada predicción usa la oración completa, no solo el pasado.
 
 ### 4.8 ELMo — primer paso hacia embeddings contextuales
 ELMo construye directamente sobre el Bi-LSTM de 4.7: lo apila y lo preentrena a gran escala, convirtiéndolo en un generador de embeddings contextuales — resolviendo finalmente la limitación de la Clase 3 (3.5).
@@ -457,6 +764,25 @@ $$PE(pos,2i)=\sin\left(\frac{pos}{10000^{2i/d}}\right), \qquad PE(pos,2i+1)=\cos
 
 Sinusoidal → generaliza a cualquier longitud de secuencia (a diferencia de embeddings posicionales aprendidos con longitud fija).
 
+**Código (positional encoding sinusoidal con NumPy):**
+```python
+import numpy as np
+
+def positional_encoding(T, d):
+    pos = np.arange(T)[:, None]              # (T, 1) -- posición de cada token
+    i = np.arange(d)[None, :]                  # (1, d) -- índice de dimensión
+    angle_rates = 1 / (10000 ** (2 * (i // 2) / d))
+    angles = pos * angle_rates                 # (T, d)
+    pe = np.zeros((T, d))
+    pe[:, 0::2] = np.sin(angles[:, 0::2])       # dimensiones pares: seno
+    pe[:, 1::2] = np.cos(angles[:, 1::2])       # dimensiones impares: coseno
+    return pe   # (T, d), se suma directamente al embedding de entrada X
+
+pe = positional_encoding(T=20, d=64)
+print(pe.shape)  # (20, 64)
+```
+Input: largo de secuencia $T$ y dimensión del modelo $d$. Output: matriz `(T, d)` que se suma elemento a elemento al embedding de cada token, según su posición — sin esto, self-attention (5.4) no distinguiría el orden.
+
 ![Ejemplo de positional encoding](https://jalammar.github.io/images/t/transformer_positional_encoding_large_example.png)
 
 ### 5.4 Self-Attention — el mecanismo central
@@ -475,6 +801,24 @@ El escalado $\sqrt{d_k}$ evita que el softmax se sature (gradientes ínfimos) cu
 
 **Feed-Forward** después de la atención: $\text{FFN}(x)=\max(0,xW_1+b_1)W_2+b_2$. Necesaria porque la self-attention es lineal en los values — la FFN introduce no-linealidad real.
 - $x$: la representación del token (salida de la self-attention). $W_1,b_1$: pesos/bias de la primera capa lineal, que expande la dimensión (típicamente a 4x). $\max(0,\cdot)$: la no-linealidad ReLU. $W_2,b_2$: pesos/bias de la segunda capa lineal, que vuelve a la dimensión original.
+
+**Código (self-attention con `MultiHeadAttention` de Keras):**
+```python
+import tensorflow as tf
+from tensorflow.keras.layers import MultiHeadAttention
+
+d_model, n_heads, T, batch = 64, 4, 10, 2
+
+x = tf.random.normal((batch, T, d_model))  # input: X completo, no token a token (ver 5.4)
+
+mha = MultiHeadAttention(num_heads=n_heads, key_dim=d_model // n_heads)
+# self-attention: query, key y value son el MISMO tensor x
+output, attn_weights = mha(query=x, key=x, value=x, return_attention_scores=True)
+
+print(output.shape)        # (batch, T, d_model) -- misma forma que el input
+print(attn_weights.shape)  # (batch, n_heads, T, T) -- pesos softmax(QK^T/sqrt(d_k)) por head
+```
+Input: `(batch, T, d_model)` — la secuencia completa de embeddings (con positional encoding ya sumado), en un solo tensor (no hay recurrencia). Output: `(batch, T, d_model)`, la misma forma — necesario para apilar capas (5.6) y para la conexión residual.
 
 A qué otros tokens "atiende" una palabra en la práctica (los pesos de atención, visualizados sobre una oración real):
 
@@ -509,11 +853,54 @@ Cada bloque: Multiheaded Self-Attention (+residual+LN) → FFN (+residual+LN), r
 
 ![Estructura del encoder](https://jalammar.github.io/images/t/Transformer_encoder.png)
 
+**Código (un bloque encoder Transformer completo con Keras, self-attention + FFN + residual + LayerNorm):**
+```python
+from tensorflow.keras.layers import MultiHeadAttention, LayerNormalization, Dense, Dropout, Layer
+
+class TransformerEncoderBlock(Layer):
+    def __init__(self, d_model, n_heads, ff_dim):
+        super().__init__()
+        self.mha = MultiHeadAttention(num_heads=n_heads, key_dim=d_model // n_heads)
+        self.ffn = tf.keras.Sequential([Dense(ff_dim, activation="relu"), Dense(d_model)])
+        self.ln1, self.ln2 = LayerNormalization(), LayerNormalization()
+
+    def call(self, x):                              # x: (batch, T, d_model)
+        attn_out = self.mha(query=x, key=x, value=x)
+        x = self.ln1(x + attn_out)                   # residual + LayerNorm, ver 5.6
+        ffn_out = self.ffn(x)
+        return self.ln2(x + ffn_out)                  # residual + LayerNorm de nuevo
+
+block = TransformerEncoderBlock(d_model=64, n_heads=4, ff_dim=256)
+x = tf.random.normal((2, 10, 64))
+print(block(x).shape)  # (2, 10, 64) -- misma forma, se puede apilar N veces (BERT base: N=12)
+```
+Input/output: `(batch, T, d_model)` en ambos casos — apilando $N$ de estos bloques (cambiando solo los pesos internos en cada uno) se construye el encoder completo de BERT (5.7).
+
 ### 5.8 BERT — Masked Language Modeling
 La primera arquitectura célebre construida apilando solo el encoder de 5.7, sin nada más.
 
 Usa **solo el encoder**. Enmascara ~15% de tokens y los predice usando contexto **bidireccional** completo:
 "El [MASK] está buenísimo" → "hotel". `[CLS]` para clasificación de secuencia completa, `[SEP]` para separar oraciones. Ideal para clasificación de secuencias/tokens (NER, POS, Q&A extractivo) — **no genera texto** porque depende de ver ambos lados.
+
+**Código (usar BERT preentrenado con la librería `transformers`):**
+```python
+from transformers import AutoTokenizer, AutoModelForMaskedLM
+import torch
+
+tokenizer = AutoTokenizer.from_pretrained("bert-base-multilingual-cased")
+model = AutoModelForMaskedLM.from_pretrained("bert-base-multilingual-cased")
+
+texto = f"El {tokenizer.mask_token} está buenísimo."
+inputs = tokenizer(texto, return_tensors="pt")  # input: ids de tokens, (1, T)
+
+with torch.no_grad():
+    logits = model(**inputs).logits             # output: (1, T, |V|) -- un logit por token de vocab, por posición
+
+mask_idx = (inputs["input_ids"] == tokenizer.mask_token_id).nonzero()[0, 1]
+pred_id = logits[0, mask_idx].argmax()
+print(tokenizer.decode(pred_id))  # output: la palabra predicha para [MASK], ej. "hotel"
+```
+Input: texto con `[MASK]`, tokenizado a ids `(1, T)`. Output: `logits` de forma `(1, T, |V|)` — softmax de la posición enmascarada da la distribución de probabilidad sobre qué palabra va ahí (ver 5.8).
 
 ### 5.9 Encoder-Decoder Transformer
 BERT (5.8) no puede generar texto por ser bidireccional. Para tareas generativas como traducción o resumen, se necesita además un decoder que sí pueda generar token a token.
@@ -528,10 +915,42 @@ Para tareas generativas (traducción, resumen): el decoder tiene **tres** subcap
 
 ![Estructura del decoder](https://jalammar.github.io/images/t/Transformer_decoder.png)
 
+**Código (encoder-decoder T5 preentrenado, para una tarea de texto-a-texto):**
+```python
+from transformers import T5Tokenizer, T5ForConditionalGeneration
+
+tokenizer = T5Tokenizer.from_pretrained("t5-small")
+model = T5ForConditionalGeneration.from_pretrained("t5-small")
+
+input_ids = tokenizer("translate English to German: The house is wonderful.",
+                       return_tensors="pt").input_ids  # input: ids del encoder, (1, T_src)
+
+output_ids = model.generate(input_ids, max_length=20)  # genera token a token, autorregresivo (decoder)
+print(tokenizer.decode(output_ids[0], skip_special_tokens=True))  # output: texto generado (string)
+```
+Input: secuencia fuente tokenizada `(1, T_src)`, que el **encoder** procesa bidireccionalmente. Output: secuencia generada por el **decoder** (causal, cross-attention contra el encoder, ver 5.9) — de longitud variable, no fija.
+
 ### 5.10 Decoder-Only
 Si solo importa generar (sin traducir desde una fuente separada), se puede prescindir también del encoder y quedarse únicamente con el decoder de 5.9 — esta es la arquitectura que domina los LLMs actuales.
 
 Solo el componente decoder, con masked self-attention, sin encoder. Entrenamiento autorregresivo: predecir el próximo token dado todo lo anterior. **GPT, LLaMA y la mayoría de los LLMs actuales son decoder-only** — esta arquitectura es la que domina hoy y la puerta de entrada a la clase 6.
+
+**Código (generación autorregresiva con GPT-2 preentrenado, `transformers`):**
+```python
+from transformers import GPT2Tokenizer, GPT2LMHeadModel
+
+tokenizer = GPT2Tokenizer.from_pretrained("gpt2")
+model = GPT2LMHeadModel.from_pretrained("gpt2")
+
+input_ids = tokenizer("The elephant walked into the", return_tensors="pt").input_ids  # (1, T)
+
+output_ids = model.generate(input_ids, max_new_tokens=10, do_sample=False)
+# internamente: en cada paso, masked self-attention solo mira tokens ya generados (ver 5.10);
+# se predice el siguiente token, se concatena al input, y se repite -- estrictamente secuencial en inferencia
+
+print(tokenizer.decode(output_ids[0]))  # output: el texto original + los tokens generados
+```
+Input: prefijo de texto tokenizado `(1, T)`. Output: secuencia extendida `(1, T+nuevos)` — sin encoder, sin cross-attention, solo self-attention causal (5.4) repetida token a token.
 
 ### 5.11 Landscape (mapa mental para el examen)
 Resumiendo las tres variantes vistas (5.8-5.10) en una sola tabla mental:
@@ -579,6 +998,24 @@ Una vez preentrenado el modelo (6.1-6.3), queda adaptarlo a una tarea específic
 - **Adapters**: módulos pequeños insertados en las capas, solo ellos se entrenan; el resto queda congelado.
 - **LoRA**: congela $W$ y aprende una actualización de bajo rango $W'=W+BA$ con $A\in\mathbb{R}^{r\times d}$, $B\in\mathbb{R}^{d\times r}$, $r\ll d$. Solo $A,B$ son entrenables → drásticamente menos parámetros, menos overfitting, cambio de tarea rápido (solo se cambian las matrices LoRA).
   - $W$: la matriz de pesos original preentrenada (de tamaño $d\times d$, congelada, no se modifica). $d$: la dimensión del modelo (puede ser miles). $A,B$: las dos matrices nuevas que sí se entrenan. $r$: el rango de la actualización — una dimensión interna mucho más chica que $d$ (p. ej. $r=8$ vs $d=4096$), que limita cuántos "grados de libertad" tiene la corrección. $BA$: el producto de ambas matrices, de tamaño $d\times d$ igual que $W$, pero de rango (información efectiva) mucho menor por construcción. $W'$: la matriz efectiva usada en inferencia, suma de la original más la corrección.
+
+**Código (fine-tuning eficiente con LoRA, librería `peft`):**
+```python
+from transformers import AutoModelForCausalLM
+from peft import LoraConfig, get_peft_model
+
+model = AutoModelForCausalLM.from_pretrained("gpt2")  # modelo preentrenado, W congelado por defecto
+
+lora_config = LoraConfig(
+    r=8,                 # rango de la actualización de bajo rango, ver fórmula W'=W+BA
+    lora_alpha=16,        # factor de escala de BA
+    target_modules=["c_attn"],  # qué matrices del modelo reciben la corrección LoRA (ej. atención)
+)
+model = get_peft_model(model, lora_config)
+model.print_trainable_parameters()
+# output: muestra que solo una fracción muy chica de los parámetros totales es entrenable (A y B)
+```
+Input: un modelo preentrenado completo (millones/billones de parámetros, todos congelados). Output: el mismo modelo envuelto con matrices $A,B$ entrenables agregadas en las capas indicadas — solo esas se actualizan durante el fine-tuning, el resto de $W$ permanece fijo.
 
 ### 6.5 Por qué los encoders no generan texto (recordatorio + razón formal)
 Cierra el bloque de pretraining/fine-tuning (6.1-6.4), todo construido sobre BERT (encoder-only). Antes de pasar a las arquitecturas generativas (6.6-6.7), vale recordar por qué ese mismo encoder no sirve para generar.
