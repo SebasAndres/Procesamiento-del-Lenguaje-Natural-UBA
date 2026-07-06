@@ -1,6 +1,6 @@
 # Resumen General — PLN UBA
 
-Guía de estudio integrando clases 1-6. Pensada para tener solidez teórica y poder narrar **la evolución del NLP**: cada técnica nueva existe porque resuelve una limitación concreta de la anterior. Esa cadena causal es el hilo que conecta todo el curso y es, probablemente, la pregunta de examen más probable ("explique por qué pasamos de X a Y").
+Guía de estudio integrando clases 1-9. Pensada para tener solidez teórica y poder narrar **la evolución del NLP**: cada técnica nueva existe porque resuelve una limitación concreta de la anterior. Esa cadena causal es el hilo que conecta todo el curso y es, probablemente, la pregunta de examen más probable ("explique por qué pasamos de X a Y").
 
 ## Índice
 
@@ -12,12 +12,15 @@ Guía de estudio integrando clases 1-6. Pensada para tener solidez teórica y po
 - [4. Clase 4: RNN, LSTM, GRU](#4-language-models-i-rnn-lstm-gru-clase-4--27-05) — *[4.1 RNN](#41-rnn--arquitectura-base) · [4.2 Seq2seq](#42-seq2seq-encoder-decoder) · [4.3 BPTT](#43-backpropagation-through-time-bptt) · [4.4 Vanishing/Exploding Gradients](#44-exploding--vanishing-gradients) · [4.5 LSTM](#45-lstm-hochreiter--schmidhuber-1997) · [4.6 GRU](#46-gru-cho-et-al-2014) · [4.7 Bidireccionales](#47-rnn-bidireccionales) · [4.8 ELMo](#48-elmo--primer-paso-hacia-embeddings-contextuales) · [4.9 Benchmarks](#49-tareas-de-referencia-vocabulario-de-benchmarks)*
 - [5. Clase 5: Atención y Transformers](#5-language-models-ii-atención-y-transformers-clase-5--03-06) — *[5.1 Atención](#51-mecanismo-de-atención--resuelve-el-cuello-de-botella) · [5.2 Transformers](#52-transformers-vaswani-et-al-2017--sacar-la-rnn-del-medio) · [5.3 Positional Embeddings](#53-positional-embeddings) · [5.4 Self-Attention](#54-self-attention--el-mecanismo-central) · [5.5 Multi-Head](#55-multiheaded-self-attention) · [5.6 Residual/LayerNorm](#56-residual-connections-y-layer-normalization) · [5.7 Encoder](#57-encoder) · [5.8 BERT](#58-bert--masked-language-modeling) · [5.9 Encoder-Decoder](#59-encoder-decoder-transformer) · [5.10 Decoder-Only](#510-decoder-only) · [5.11 Landscape](#511-landscape-mapa-mental-para-el-examen)*
 - [6. Clase 6: Pretraining y Modelos Generativos](#6-pretraining-y-modelos-generativos-clase-6--10-06) — *[6.1 Pretraining/Transfer Learning](#61-pretraining-y-transfer-learning) · [6.2 Tipos de preentrenamiento](#62-tipos-de-preentrenamiento-tabla-de-examen) · [6.3 BERT/ELECTRA](#63-bert-en-detalle--electra) · [6.4 Adapters/LoRA](#64-adapters-y-lora--fine-tuning-eficiente) · [6.5 Por qué encoders no generan](#65-por-qué-los-encoders-no-generan-texto-recordatorio--razón-formal) · [6.6 BART/T5](#66-bart-y-t5--denoising-en-vez-de-lm-puro) · [6.7 GPT-1→3](#67-gpt-1--gpt-2--gpt-3-la-línea-de-escalado) · [6.8 Capacidades emergentes](#68-capacidades-emergentes) · [6.9 Alucinaciones](#69-alucinaciones) · [6.10 RAG](#610-rag-retrieval-augmented-generation) · [6.11 Costo/Destilación](#611-costo-destilación-early-exit) · [6.12 Toxicidad/Sesgo](#612-toxicidad-y-sesgo)*
+- [7. Clase 7: Information Retrieval y RAG](#7-information-retrieval-y-rag-clase-7--17-06) — *[7.1 Qué es IR](#71-qué-es-information-retrieval) · [7.2 Desafíos](#72-desafíos-en-ir) · [7.3 IR vs Bases de datos](#73-ir-vs-bases-de-datos) · [7.4 Arquitectura de un buscador](#74-arquitectura-de-un-motor-de-búsqueda) · [7.5 Prehistoria (TF-IDF)](#75-la-prehistoria-recuperación-léxica-sparse) · [7.6 Dense Retrieval](#76-dense-retrieval--la-transición-a-embeddings) · [7.7 DPR](#77-dpr-dense-passage-retrieval-para-qa) · [7.8 Sentence Transformers](#78-sentence-transformers--sbert) · [7.9 Learning to Rank](#79-learning-to-rank) · [7.10 RAG](#710-rag--la-síntesis)*
+- [8. Clase 8: Post-Entrenamiento y Alineación](#8-post-entrenamiento-y-alineación-de-llms-clase-8--24-06) — *[8.1 SFT](#81-sft--el-cimiento-de-la-instrucción) · [8.2 Límites de SFT](#82-por-qué-sft-no-basta) · [8.3 Las 3 H](#83-alineación-el-framework-de-las-3-h) · [8.4 Pipeline RLHF](#84-el-pipeline-clásico-de-rlhf) · [8.5 Reward Model](#85-el-juez-reward-model-rm) · [8.6 PPO](#86-optimización-de-política-ppo) · [8.6.1 Esquema RL](#861-esquema-de-rl-general-y-cómo-aplica-a-rlhf) · [8.6.2 Los 4 modelos y flujo PPO](#862-los-4-modelos-de-rlhf-roles-y-flujo-de-entrenamiento) · [8.6.3 Cómputo de π_θ, V_φ y J_PPO](#863-cómputo-de-π_θ-y-v_φ-y-la-actualización-ppo-en-detalle) · [8.7 Fricción del RLHF](#87-la-fricción-técnica-de-rlhf) · [8.8 DPO](#88-dpo--la-vía-directa) · [8.9 RLHF vs DPO](#89-comparativa-rlhf-vs-dpo) · [8.10 Scalable Oversight](#810-el-futuro-scalable-oversight)*
+- [9. Clase 9: Sistemas Agénticos](#9-sistemas-agénticos-más-allá-del-chatbot-clase-9--01-07) — *[9.1 El muro del Transformer](#91-el-muro-del-transformer) · [9.2 RAG como componente](#92-rag-el-primer-componente-del-sistema) · [9.3 Tool Calling](#93-tool-calling--el-modelo-como-selector-estocástico) · [9.4 Chain of Thought](#94-chain-of-thought--razonamiento) · [9.5 Reasoning vs Planning](#95-reasoning-vs-planning) · [9.6 Test-Time Compute](#96-test-time-compute-nuevas-scaling-laws) · [9.7 Anatomía del agente](#97-anatomía-de-un-agente-autónomo) · [9.8 Orquestación](#98-orquestación-el-harness-vs-el-framework) · [9.9 Evaluación](#99-evaluación-de-sistemas-estocásticos) · [9.10 Destilación de razonamiento](#910-destilación-de-razonamiento) · [9.11 Horizonte](#911-el-horizonte-de-expansión)*
 
 **Anexos de repaso (no narrativos, para consulta rápida):**
-- [7. Diagramas de Arquitecturas](#7-diagramas-de-arquitecturas) (Mermaid, uno por arquitectura clave) — *[7.1 Skip-gram](#71-skip-gram-word2vec) · [7.2 RNN](#72-rnn-desenrollada-en-el-tiempo) · [7.3 LSTM](#73-celda-lstm-un-solo-paso-de-tiempo) · [7.4 GRU](#74-celda-gru-un-solo-paso-de-tiempo) · [7.5 Seq2seq+Atención](#75-seq2seq-con-atención-encoder-decoder--rnn) · [7.6 Self-Attention](#76-self-attention-un-bloque-transformer) · [7.7 Encoder Transformer](#77-bloque-encoder-del-transformer-n) · [7.8 Encoder-Decoder](#78-bloque-decoder-y-transformer-encoder-decoder-completo) · [7.9 BERT](#79-bert-encoder-only--inputoutput) · [7.10 GPT](#710-gpt-decoder-only--generación-autorregresiva) · [7.11 ELMo](#711-elmo-bi-lstm-apilado) · [7.12 LoRA](#712-lora-fine-tuning-eficiente)*
-- [8. Preguntas guía (autoexamen)](#8-preguntas-guía-para-repasar-auto-examen)
-- [9. Glosario rápido de fórmulas (cheat-sheet)](#9-glosario-rápido-de-fórmulas-clave-cheat-sheet)
-- [10. Respuestas al autoexamen](#10-respuestas-al-autoexamen-sección-8)
+- [10. Diagramas de Arquitecturas](#10-diagramas-de-arquitecturas) (Mermaid, uno por arquitectura clave) — *[10.1 Skip-gram](#101-skip-gram-word2vec) · [10.2 RNN](#102-rnn-desenrollada-en-el-tiempo) · [10.3 LSTM](#103-celda-lstm-un-solo-paso-de-tiempo) · [10.4 GRU](#104-celda-gru-un-solo-paso-de-tiempo) · [10.5 Seq2seq+Atención](#105-seq2seq-con-atención-encoder-decoder--rnn) · [10.6 Self-Attention](#106-self-attention-un-bloque-transformer) · [10.7 Encoder Transformer](#107-bloque-encoder-del-transformer-n) · [10.8 Encoder-Decoder](#108-bloque-decoder-y-transformer-encoder-decoder-completo) · [10.9 BERT](#109-bert-encoder-only--inputoutput) · [10.10 GPT](#1010-gpt-decoder-only--generación-autorregresiva) · [10.11 ELMo](#1011-elmo-bi-lstm-apilado) · [10.12 LoRA](#1012-lora-fine-tuning-eficiente)*
+- [11. Preguntas guía (autoexamen)](#11-preguntas-guía-para-repasar-auto-examen)
+- [12. Glosario rápido de fórmulas (cheat-sheet)](#12-glosario-rápido-de-fórmulas-clave-cheat-sheet)
+- [13. Respuestas al autoexamen](#13-respuestas-al-autoexamen-sección-11)
 
 ---
 
@@ -39,9 +42,15 @@ Guía de estudio integrando clases 1-6. Pensada para tener solidez teórica y po
 7. Pretraining + Transfer Learning (BERT, GPT, T5...) — preentrenar en texto masivo, después adaptar
    ↓ (escalar parámetros y datos)
 8. LLMs modernos — in-context learning, capacidades emergentes, y sus riesgos (alucinación, costo, sesgo)
+   ↓ (el conocimiento del modelo es fijo y puede alucinar: ¿cómo darle acceso a información real y actualizada?)
+9. Retrieval + RAG — recuperación densa (embeddings) + generación condicionada a documentos reales (clase 7)
+   ↓ (el modelo base predice tokens pero no obedece ni es seguro: ¿cómo convertirlo en un asistente alineado?)
+10. Post-entrenamiento y alineación — SFT → RLHF/DPO para hacerlo útil, honesto e inofensivo (clase 8)
+   ↓ (incluso alineado, el modelo aislado es estático, pasivo y sin memoria: ¿cómo convertirlo en un sistema que actúe?)
+11. Sistemas agénticos — el LLM como CPU heurística rodeada de herramientas, memoria, planning y un loop de orquestación (clase 9)
 ```
 
-Cada flecha "↓" es una pregunta de examen en potencia: **¿qué limitación tenía la técnica anterior, y cómo la resuelve la siguiente?** Esa es la estructura de todo este resumen.
+Cada flecha "↓" es una pregunta de examen en potencia: **¿qué limitación tenía la técnica anterior, y cómo la resuelve la siguiente?** Esa es la estructura de todo este resumen. Notar que las tres últimas clases (7-9) marcan un cambio de foco: ya no se trata de *arquitecturas de modelos* nuevas, sino de **sistemas construidos alrededor** del modelo (retrieval, alineación, orquestación) — la frase que cierra el curso es "un modelo no es un sistema".
 
 ---
 
@@ -472,7 +481,19 @@ Aplicando esa hipótesis distribucional, Word2Vec entrena una red neuronal simpl
 
 - **Skip-gram**: dada $w_t$, predecir las palabras de contexto en ventana $\pm c$. Maximiza $\frac{1}{T}\sum_t\sum_{j} \log P(w_{t+j}\mid w_t)$.
   - $w_t$: la palabra central (target) en la posición $t$. $T$: cantidad total de palabras en el corpus de entrenamiento (se promedia sobre todas). $c$: el radio de la ventana de contexto (cuántas palabras a cada lado se consideran contexto). $j$: recorre los offsets dentro de la ventana, $j\in\{-c,\ldots,-1,1,\ldots,c\}$, excluyendo $j=0$ (la propia palabra). $w_{t+j}$: cada palabra de contexto real dentro de esa ventana. $P(w_{t+j}\mid w_t)$: probabilidad (vía softmax sobre el vocabulario) de que $w_{t+j}$ sea una palabra de contexto de $w_t$.
-- **CBOW**: inverso — dado el contexto, predecir la palabra central. Más rápido, mejor con vocabularios grandes.
+  - **¿Por qué el input es one-hot si la red "predice contexto"?** El contexto **no** entra en el input de la red — entra como *target* de entrenamiento. Skip-gram genera pares `(centro, contexto)` deslizando una ventana sobre el corpus (`("sentó","gato")`, `("sentó","sobre")`, etc.) y cada par es un ejemplo de entrenamiento independiente: el input es siempre la palabra central como one-hot, y el target es una única palabra de contexto. No es un modelo causal/autoregresivo: no predice solo el siguiente token ni solo el anterior, sino cualquier palabra dentro de la ventana $\pm c$, sin distinguir posición relativa. El gradiente acumula señal de todos esos pares, forzando a que $W[w_t]$ sea un buen predictor simultáneo de todos sus vecinos.
+  - **Output con múltiples targets**: la predicción de cada palabra de contexto es **independiente** — una softmax separada por posición, todas compartiendo la misma $W'$. La loss total es la suma sobre todas las posiciones de la ventana: $L=-\sum_{j}\log P(w_{t+j}\mid w_t)$. Se asume $P(w_{t-c},\ldots,w_{t+c}\mid w_t)\approx\prod_j P(w_{t+j}\mid w_t)$ (independencia entre palabras de contexto dado el centro). Es una aproximación, pero funciona empíricamente.
+- **CBOW** (Continuous Bag of Words): inverso — el input son las palabras de contexto y se predice la palabra central. Las palabras de contexto se representan cada una como one-hot, se buscan sus embeddings en $W$ y se **promedian** antes de pasar por $W'$: $h=\frac{1}{2c}\sum_{j\neq 0}W[w_{t+j}]$, luego $\hat y=\text{softmax}(hW')$. Un solo forward pass por ventana (en vez de uno por palabra de contexto como Skip-gram). Más rápido y robusto para palabras frecuentes; peor que Skip-gram para palabras raras porque el promedio borra información individual de cada contexto.
+
+| | Skip-gram | CBOW |
+|---|---|---|
+| Input | una palabra (one-hot) | múltiples palabras (promediadas) |
+| Target | múltiples palabras de contexto | una palabra central |
+| Forward pass/ventana | uno por cada palabra de contexto | uno por ventana |
+| Palabras raras | mejor (más pares de entrenamiento) | peor |
+| Velocidad | más lento | más rápido |
+
+No confundir con modelos contextuales (ELMo/BERT): en Skip-gram/CBOW el embedding de $w$ es siempre la fila $W[w]$ — una constante una vez entrenado, independiente de la oración en la que aparezca $w$. La "bidireccionalidad" de Skip-gram (predice vecinos a izquierda y derecha) solo sirve como señal de entrenamiento; en tiempo de uso no hay contexto: embed($w$) = lookup en $W$, punto.
 - **Negative Sampling**: el softmax completo sobre $|V|$ es costoso. Se reemplaza por distinguir la palabra de contexto real de $k$ negativos muestreados de $P_n(w)\propto f(w)^{3/4}$ (suaviza para no sobre-representar palabras frecuentes).
   - $k$: cantidad de palabras "negativas" (no relacionadas) muestreadas aleatoriamente por cada ejemplo positivo real. $f(w)$: frecuencia de la palabra $w$ en el corpus. El exponente $3/4$ achata la distribución de frecuencias — sin él, las palabras muy frecuentes ("the", "de") dominarían casi todo el muestreo negativo.
 - **Analogías vectoriales**: $v_{\text{king}}-v_{\text{man}}+v_{\text{woman}}\approx v_{\text{queen}}$. Emerge del entrenamiento, no está programado — es la evidencia más citada de que estos vectores capturan estructura semántica real.
@@ -505,6 +526,38 @@ Word2Vec entrena solo con ventanas locales, ignorando las estadísticas globales
 Combina lo mejor de LSA (estadísticas globales de co-ocurrencia) con lo mejor de Word2Vec (objetivo de entrenamiento eficiente):
 $$J=\sum_{i,j} f(X_{ij})\left(v_i^\top v_j + b_i+b_j-\log X_{ij}\right)^2$$
 - $X_{ij}$: cantidad de veces que la palabra $j$ aparece en el contexto de la palabra $i$ (matriz de co-ocurrencia global, contada sobre todo el corpus). $v_i, v_j$: los embeddings a aprender de las palabras $i$ y $j$. $b_i, b_j$: términos de bias por palabra (ajustan offsets individuales de frecuencia). $v_i^\top v_j+b_i+b_j$: la predicción del modelo para $\log X_{ij}$ — se entrena para que el producto punto de los embeddings reconstruya el logaritmo de la co-ocurrencia real. $f(X_{ij})$: función de ponderación que le da menos peso a pares con $X_{ij}$ muy alto.
+
+**Función de ponderación $f$** (explícita):
+$$f(x)=\begin{cases}(x/x_{\max})^\alpha & x < x_{\max} \\ 1 & x\geq x_{\max}\end{cases}, \qquad x_{\max}=100,\;\alpha=3/4$$
+Satura en 1 para co-ocurrencias muy altas (evita que "el" domine todo) y crece suavemente para las bajas (no descarta pares raros). El exponente $3/4$ es el mismo que en Negative Sampling de Word2Vec: achata la distribución de frecuencias.
+
+**Dos conjuntos de vectores**: en la implementación real GloVe tiene $v_i$ (vectores de "palabra") y $\tilde{v}_j$ (vectores de "contexto"), ambos de dimensión $d$ y ambos entrenados. La función objetivo real es:
+$$J=\sum_{i,j:X_{ij}>0} f(X_{ij})\left(v_i^\top \tilde{v}_j + b_i+\tilde{b}_j-\log X_{ij}\right)^2$$
+La suma recorre solo los pares con $X_{ij}>0$ (la matriz de co-ocurrencia es muy sparse). Al terminar el entrenamiento, el embedding final es $v_i+\tilde{v}_j$ (suma de ambos vectores) — empíricamente supera usar cualquiera de los dos solos.
+
+**Algoritmo de optimización: AdaGrad** (no SGD). GloVe no itera sobre el corpus palabra por palabra — primero pre-computa toda $X$ y luego corre AdaGrad sobre los pares no nulos.
+
+*Gradientes* para un par $(i,j)$ dado (definiendo el residuo $e_{ij}=v_i^\top\tilde{v}_j+b_i+\tilde{b}_j-\log X_{ij}$ y el peso $w_{ij}=f(X_{ij})$):
+$$\nabla_{v_i}\ell_{ij}=2w_{ij}\,e_{ij}\,\tilde{v}_j, \qquad \nabla_{\tilde{v}_j}\ell_{ij}=2w_{ij}\,e_{ij}\,v_i, \qquad \nabla_{b_i}\ell_{ij}=\nabla_{\tilde{b}_j}\ell_{ij}=2w_{ij}\,e_{ij}$$
+
+*Actualización AdaGrad* (cada parámetro $\theta$ tiene su propio acumulador $G_\theta$):
+$$G_\theta \leftarrow G_\theta + \bigl(\nabla_\theta \ell_{ij}\bigr)^2, \qquad \theta \leftarrow \theta - \frac{\eta}{\sqrt{G_\theta+\varepsilon}}\,\nabla_\theta \ell_{ij}$$
+La tasa de aprendizaje efectiva $\eta/\sqrt{G_\theta}$ decrece a medida que un parámetro acumula gradientes grandes — palabras frecuentes (que aparecen en muchos pares) terminan recibiendo pasos más chicos, lo cual estabiliza el entrenamiento sin necesidad de tuning fino de $\eta$.
+
+**Por qué AdaGrad y no SGD**: SGD con tasa fija trataría a "the" exactamente igual que a "quantum" aunque "the" aparezca en millones de pares. AdaGrad adapta automáticamente la tasa por parámetro según cuántas veces fue actualizado, resolviendo ese desequilibrio sin intervención manual.
+
+**Resumen del algoritmo completo**:
+```
+1. Construir X (matriz de co-ocurrencia) sobre todo el corpus — una sola vez
+2. Inicializar v_i, ṽ_j, b_i, b̃_j ~ Uniform(-0.5/d, 0.5/d); acumuladores G ← 0
+3. Para cada época:
+     Para cada par (i,j) con X_ij > 0 (en orden aleatorio):
+         e  = v_i·ṽ_j + b_i + b̃_j - log(X_ij)   # residuo
+         w  = f(X_ij)                               # peso de la loss
+         Calcular gradientes de v_i, ṽ_j, b_i, b̃_j (fórmulas de arriba)
+         Actualizar acumuladores G y luego parámetros (AdaGrad)
+4. Embedding final: embed(i) = v_i + ṽ_i
+```
 
 $f$ pondera menos las co-ocurrencias muy frecuentes. Suele superar a Word2Vec en benchmarks de analogía/similitud porque usa la matriz de co-ocurrencia completa en vez de solo ventanas locales.
 
@@ -1068,17 +1121,705 @@ Toxicidad: lenguaje dañino/ofensivo. Sesgo: preferencias distribucionales sutil
 
 ---
 
+## 7. Information Retrieval y RAG (Clase 7 — 17-06)
+
+### Por qué surge esta clase
+La Clase 6 cerró con RAG (6.10) como mitigación de las alucinaciones: buscar documentos reales y condicionar la generación a ellos. Pero ese "buscar" quedó como una caja negra. Esta clase abre la caja: retoma el **Information Retrieval** que apareció en la Clase 2 (2.3-2.4, con TF-IDF y BM25) y lo lleva hasta su forma moderna — **dense retrieval** con embeddings contextuales — que es el motor real detrás de RAG. El hilo es el mismo de todo el curso: se pasa de representaciones **sparse y léxicas** (contar palabras) a representaciones **densas y semánticas** (embeddings), exactamente el mismo salto que en las clases 2→3, pero ahora aplicado a la tarea de *buscar* en vez de *clasificar*.
+
+### 7.1 Qué es Information Retrieval
+**IR** es el proceso de buscar y obtener información relevante a partir de una gran colección de datos almacenados: la habilidad de encontrar la información correcta en el momento adecuado. Es lo que hace un motor de búsqueda (Google) y, hoy, el "retrieval" de cualquier sistema RAG. Tiene tres piezas conceptuales (las mismas de 2.3):
+- **Usuario**: inicia el proceso ingresando una necesidad de información.
+- **Colección de documentos**: el corpus donde se busca — textos, imágenes, audio, video.
+- **Consulta (query)**: la expresión formal de la necesidad del usuario, que se compara contra la colección para recuperar documentos relevantes.
+
+El sistema se organiza siempre en tres bloques: **representación de los documentos**, **representación de la query** (ambas en el mismo espacio, para poder compararlas), y un **modelo de ranking** que ordena por relevancia — con un ciclo de **evaluación** que retroalimenta ambas representaciones. Toda la clase es, en el fondo, distintas formas de llenar esos tres bloques.
+
+### 7.2 Desafíos en IR
+Lo que hace a IR difícil (y lo diferencia de una simple consulta a una base de datos):
+- **Escalabilidad**: mantener precisión y tiempo de respuesta a medida que crecen datos, documentos y usuarios.
+- **Precisión**: los resultados deben ser genuinamente relevantes para la query.
+- **Privacidad**: la información del usuario debe mantenerse segura.
+- **Personalización**: resultados adaptados al usuario.
+- **Tiempo de respuesta**: crítico para la experiencia — y más aún cuando el IR está integrado dentro de un sistema automático (como RAG, donde el retrieval es solo el primer paso antes del LLM).
+- **Evaluación**: se necesitan métricas y benchmarks adecuados para medir la efectividad del ranking (precision@k, recall@k, MRR, nDCG).
+
+### 7.3 IR vs. Bases de datos
+Distinción conceptual clave para entender por qué IR es un problema aparte:
+
+| | **IR** | **Bases de datos** |
+|---|---|---|
+| Datos | No estructurados | Estructurados |
+| Semántica | Subjetiva | Bien definida |
+| Query | Keywords / frases en lenguaje natural | Queries estructuradas (SQL) |
+| Objetivo | **Relevancia** (ranking gradual) | **Exact retrieval** (match exacto) |
+
+Una base de datos devuelve exactamente las filas que cumplen una condición booleana; IR devuelve un *ranking* por relevancia sobre datos ambiguos donde no hay una respuesta "correcta" única. Por eso IR necesita nociones como similitud coseno y scores de relevancia, no `WHERE ... = ...`.
+
+### 7.4 Arquitectura de un motor de búsqueda
+El pipeline canónico, de la web al usuario:
+1. **Web Crawler**: escanea la web y recopila páginas.
+2. **Indexer / Indexing**: organiza los datos recopilados en **index files** (típicamente un índice invertido: término → lista de documentos que lo contienen).
+3. **Query Parser**: transforma la query del usuario en la representación predefinida (la misma que la de los documentos).
+4. **Ranker**: ordena los documentos candidatos según su relevancia respecto a la query.
+5. **Display**: presenta los resultados recuperados.
+
+El flujo: `Usuario → Query → Search Engine → Query parseada → Index Files → Files Ranked → Returns to Search Engine → Usuario`, con el índice alimentado offline por `Web Crawlers → Indexing → Index Files`. La clave es que crawling+indexing ocurren **offline** (una vez), y solo parsing+ranking ocurren **online** (por query) — por eso la búsqueda es rápida aunque la colección sea enorme.
+
+### 7.5 La prehistoria: recuperación léxica (sparse)
+El punto de partida histórico es exactamente lo visto en la Clase 2: representar cada documento por una **matriz término-documento** de conteos (cuántas veces aparece cada palabra en cada documento) y ponderar con **TF-IDF**:
+$$w_{x,y} = \text{tf}_{x,y}\cdot \log\frac{N}{\text{df}_x}$$
+- $\text{tf}_{x,y}$: frecuencia del término $x$ en el documento $y$. $\text{df}_x$: cantidad de documentos que contienen $x$. $N$: total de documentos. (Misma fórmula que 2.2, aquí en su rol de IR.)
+
+Esto es **retrieval léxico / sparse**: matchea *formas de palabra* exactas. Su límite es el mismo que persiguió a todo el curso hasta los embeddings — no captura significado: una query "auto" no matchea un documento que solo dice "coche", y "banco" (asiento) matchea "banco" (financiero). BM25 (2.4) es la culminación de esta línea léxica y sigue siendo un baseline fortísimo (ver tabla en 7.7). La pregunta que abre el resto de la clase: ¿y si en vez de contar palabras usamos **embeddings**?
+
+### 7.6 Dense Retrieval — la transición a embeddings
+La idea central: en vez de vectores sparse de conteos, calcular **embeddings densos** para los documentos y las queries, y rankear por **similitud coseno** entre ellos. Por qué es mejor que el retrieval léxico:
+- Trabaja sobre **representaciones semánticas** más allá de la forma léxica (recupera "coche" para la query "auto").
+- Mejor manejo de **polisemia y ambigüedad**, sobre todo usando embeddings **contextuales** (BERT y descendientes, clase 5-6).
+- Vectores de **dimensión fija** ($d$, p. ej. 384 o 768), mucho más manejables que los $|V|$-dimensionales sparse.
+
+**Pipeline (dos fases):**
+- **Indexado (offline)**: cada documento (o *chunk*) se pasa por un modelo de embeddings (p. ej. Sentence-BERT, 7.8) → se obtiene un vector denso → se almacena en un **Vector Store** (base de datos vectorial: FAISS, Chroma, etc.).
+- **Búsqueda (online)**: la query se embebe con el mismo modelo → se recuperan los **top-$k$ vectores más similares** por coseno (búsqueda de vecinos más cercanos, ANN).
+
+Este es literalmente el bloque "retrieval" de RAG. Notar el paralelo con LSA (2.9): también producía vectores densos comparables por coseno — la diferencia es que aquí los embeddings son contextuales y vienen de un Transformer, no de una SVD sobre la matriz global.
+
+### 7.7 DPR (Dense Passage Retrieval) para QA
+La forma concreta de entrenar el dense retrieval para question-answering. Se usan **dos encoders BERT separados** (arquitectura *dual-encoder* o *bi-encoder*): uno para queries $E_Q$ y otro para pasajes $E_P$. La similitud es el producto punto de los embeddings del token `[CLS]`:
+$$\text{sim}(q,p) = E_Q(q)^\top E_P(p)$$
+Se entrena con **contrastive learning**: acercar el embedding de la query al del pasaje correcto y alejarlo de los negativos (mismo espíritu que negative sampling de Word2Vec, 3.2).
+
+**Resultado clave (por qué importó)**: DPR superó a BM25 en accuracy de retrieval para QA (p. ej. Natural Questions Top-20: BM25 ≈59% vs DPR ≈79%). Pero — matiz importante de examen — **BM25 no está muerto**: en datasets como SQuAD el léxico sigue ganando, y en la práctica se combinan (**hybrid retrieval**: `BM25 + DPR`), sumando la precisión léxica exacta con la semántica densa.
+
+### 7.8 Sentence Transformers — SBERT
+Problema: BERT crudo **no** produce buenos embeddings de oración para comparar por similitud (su `[CLS]` sin fine-tuning no está optimizado para eso; y pasar cada par de oraciones junto por BERT es $O(n^2)$, inviable para buscar en millones de documentos). **Sentence-BERT (SBERT)** lo resuelve fine-tuneando BERT con una **arquitectura siamesa** (*tower architecture*): dos torres BERT con pesos compartidos, cada una produce el embedding de una oración vía **pooling** (promedio de los tokens), y se optimiza la **similitud coseno** entre ambos embeddings contra las etiquetas de similitud.
+
+La ventaja arquitectónica es que cada documento se embebe **una sola vez y por separado** (offline), y en búsqueda solo se comparan vectores ya calculados — eso es lo que hace viable el dense retrieval a escala. SBERT es el "underlying model" típico de los sistemas RAG modernos.
+
+```python
+from sentence_transformers import SentenceTransformer, util
+
+model = SentenceTransformer("all-MiniLM-L6-v2")  # SBERT: BERT fine-tuneado para similitud
+
+docs = ["el gato duerme en el sofá", "compré acciones en el banco", "el felino descansa en el sillón"]
+doc_emb = model.encode(docs, convert_to_tensor=True)   # (n_docs, d) — se calcula UNA vez (offline)
+
+query = "¿dónde descansa el gato?"
+q_emb = model.encode(query, convert_to_tensor=True)     # (d,) — se calcula por query (online)
+
+scores = util.cos_sim(q_emb, doc_emb)                    # similitud coseno query vs. cada doc
+print(scores)  # el doc 0 y el 2 puntúan alto pese a NO compartir las palabras exactas de la query
+```
+Input: strings (documentos y query). Output: matriz de similitudes coseno en `[-1,1]` — se recuperan los top-$k$. Notar que "felino/sillón" matchean "gato/sofá" por semántica, no por léxico: eso es lo que el retrieval sparse (7.5) no podía hacer.
+
+### 7.9 Learning to Rank
+Recuperar los top-$k$ candidatos es solo el primer paso; muchas veces se **reordena** (re-ranking) esos candidatos con un modelo entrenado específicamente para ordenar. **Learning to Rank (LTR)** son modelos que aprenden a ordenar una lista de ítems por relevancia para una query. Dado un set de queries $Q=\{q_1,q_2,\ldots\}$ y documentos $D$, producen documentos **ordenados** para cada query. Tres familias, según qué "unidad" mira la pérdida:
+
+| Enfoque | Qué predice | Loss típica | Trade-off |
+|---|---|---|---|
+| **Pointwise** | Relevancia de cada doc por separado: $\hat y_{i,j}=f(q_i,d_j)$ | MSE / Cross-Entropy | Simple y eficiente, pero **ignora interacciones** entre documentos |
+| **Pairwise** | Cuál de dos docs es más relevante: $f(q_k,d_i,d_j)$, score en $[-1,+1]$ | Hinge loss | Captura relaciones entre docs de una misma query; más costoso, requiere trucos (simetría, generar ranking final) |
+| **Listwise** | La **lista completa** ordenada, vía una distribución sobre permutaciones | Cross-entropy sobre permutaciones (Softmax) | Optimiza directamente la calidad del ranking; **el más preciso pero el más complejo** y caro |
+
+- Pointwise (regresión/clasificación de relevancia): $\hat y_{i,j}=f(q_i,d_j)$; loss MSE $\frac{1}{mn}\sum(y_{i,j}-\hat y_{i,j})^2$ o cross-entropy.
+- Pairwise: la red toma la query y dos documentos y emite un score $s_{i,j,k}$ (1 → doc $i$ más relevante, 0 → empate, -1 → doc $k$ más relevante); hinge loss $\sum\max(0, 1-\hat y\cdot s)$.
+- Listwise: modela $P_f$ sobre el orden de toda la lista (producto de softmaxes) y minimiza cross-entropy contra el orden ideal.
+
+**Rankers neuronales**: hoy el "underlying model" de estos rankers suele ser un modelo de similitud semántica como **Sentence-BERT** (7.8); en su forma más simple, se usa una *tower architecture* para el caso pairwise. **Aplicaciones** de LTR: search engines, sistemas de recomendación (ordenar ítems por preferencia), QA (ordenar respuestas candidatas), y **RAG** (ordenar qué documentos pasar al LLM).
+
+### 7.10 RAG — la síntesis
+Todo lo anterior converge en **Retrieval-Augmented Generation**, la arquitectura que ya se adelantó en 6.10, ahora con sus piezas explícitas:
+$$\text{Query} \xrightarrow{\text{embedding model}} \text{Vector DB} \xrightarrow{\text{top-}k} \text{Retrieved contexts} \xrightarrow{\;} \text{LLM} \to \text{Response}$$
+1. La query se convierte en embedding (7.6-7.8).
+2. Se recuperan los chunks más similares del vector store (dense retrieval, opcionalmente hibridado con BM25 y re-rankeado con LTR).
+3. Esos contextos se **inyectan en el prompt** del LLM.
+4. El LLM genera la respuesta **condicionada** a esos documentos reales.
+
+Es, como se dijo en clase 6, **la síntesis práctica de todo el curso**: recuperación (clásica sparse *o* densa neuronal) + generación neuronal moderna. Su gran virtud es que mejora la factualidad **sin reentrenar el modelo** — y ese es justamente el hilo que abre la Clase 9: RAG es el **primer componente** de un sistema más grande construido alrededor del LLM.
+
+---
+
+## 8. Post-Entrenamiento y Alineación de LLMs (Clase 8 — 24-06)
+
+### Por qué surge esta clase
+La Clase 6 mostró cómo se **preentrena** un LLM: predecir el siguiente token sobre texto masivo. Pero ese modelo "base" es solo un **predictor de tokens** — no un asistente. No sabe seguir instrucciones, no distingue una buena respuesta de una mala, y no tiene noción de ser útil, veraz o seguro. Esta clase cubre el **post-entrenamiento**: la etapa que convierte un modelo base en un asistente **alineado** con las preferencias e intenciones humanas. Es la continuación directa del pipeline de pretraining: `Pre-training (predecir token) → SFT (seguir instrucciones) → RLHF/DPO (alinear con preferencias humanas)`.
+
+### 8.1 SFT — el cimiento de la instrucción
+**Supervised Fine-Tuning (SFT)** es el primer paso crítico para convertir un modelo "base" (predictor de tokens) en un "asistente".
+- **Dataset**: pares curados de **[Instrucción, Respuesta]** (respuestas humanas ideales).
+- **Objetivo**: maximizar la probabilidad de la respuesta humana ideal — es el **mismo objetivo de language modeling** de siempre (cross-entropy sobre los tokens de la respuesta), solo que sobre datos de instrucción etiquetados en vez de texto crudo.
+- **Resultado**: el modelo aprende el **formato de chat** (turnos usuario/asistente) y la **obediencia básica** (responder a lo que se le pide en vez de solo continuar el texto).
+
+Técnicamente, SFT es un fine-tuning como el de la clase 6 (a menudo con LoRA, 6.4, para eficiencia) — la novedad no es el método sino el *tipo de datos* y su rol en el pipeline.
+
+### 8.2 Por qué SFT no basta
+SFT enseña la **forma** pero no los **valores** — imita respuestas sin entender por qué son buenas. Tres limitaciones concretas:
+- **Efecto Loro**: el modelo imita la forma superficial de las respuestas, pero no necesariamente la **veracidad ni la ética** detrás de los datos.
+- **Alucinaciones**: en su afán por complacer al humano (*mimicry*), inventa datos con seguridad absoluta (conecta directo con 6.9 — SFT puede incluso *empeorar* esto, al premiar respuestas seguras sonantes).
+- **Rigidez**: es difícil definir "una única respuesta perfecta" para preguntas abiertas o creativas — el formato supervisado (una instrucción → una respuesta "correcta") no captura que hay muchas respuestas buenas y muchas malas.
+
+La raíz común: SFT solo tiene ejemplos **positivos** (respuestas buenas), nunca aprende explícitamente qué hace a una respuesta *mejor que otra*. Eso motiva aprender de **preferencias** (comparaciones), no de demostraciones.
+
+### 8.3 Alineación: el framework de las 3 "H"
+El objetivo de la alineación se resume en tres principios — buscamos modelos que operen **bajo principios, no solo bajo imitación**:
+- **Helpful (Útil)**: resuelve la tarea del usuario con eficiencia y contexto adecuado.
+- **Honest (Honesto)**: evita fabricar información y admite cuando no conoce la respuesta.
+- **Harmless (Inofensivo)**: detecta y se niega a generar contenido tóxico, sesgado o peligroso.
+
+Estos tres criterios son el "norte" que las técnicas siguientes (RLHF, DPO) intentan optimizar — y son inherentemente **subjetivos y difíciles de escribir como una loss**, razón por la cual se aprenden de preferencias humanas en vez de definirse a mano.
+
+### 8.4 El pipeline clásico de RLHF
+**RLHF (Reinforcement Learning from Human Feedback)** es el método clásico (InstructGPT/ChatGPT) para alinear, en cuatro pasos:
+1. **SFT**: modelo base + datos de instrucción (8.1).
+2. **RM**: entrenamiento del **Reward Model** (el "juez", 8.5).
+3. **PPO**: optimización del modelo por refuerzo usando ese RM como señal de recompensa (8.6).
+4. **Iterar**: refinamiento continuo con más feedback.
+
+### 8.5 El "juez": Reward Model (RM)
+Para alinear necesitamos un "profesor" automático que sepa qué respuesta es mejor que otra — un humano no puede evaluar cada una de las millones de respuestas que el modelo genera durante el entrenamiento. La idea clave:
+- **Ranking, no puntaje**: los humanos **no** puntúan del 1 al 10 (poco confiable y no calibrado entre anotadores) — en cambio **eligen la mejor de dos opciones** ($A > B$). Comparar es mucho más fácil y consistente que puntuar en absoluto.
+- **Escalar**: el **RM** (típicamente otro Transformer, a menudo el mismo modelo con una cabeza de regresión) se entrena sobre esas comparaciones para convertir preferencias en un **valor numérico** (recompensa) — aprende a asignar un score escalar a cualquier respuesta, generalizando las preferencias humanas a respuestas nunca vistas.
+
+Se entrena con una pérdida de tipo Bradley-Terry: maximizar $\log\sigma(r_\theta(x,y_w) - r_\theta(x,y_l))$, donde $y_w$ es la respuesta preferida (winner) y $y_l$ la rechazada (loser). Es, en esencia, aprendizaje **pairwise** (mismo espíritu que el LTR pairwise de 7.9).
+
+### 8.6 Optimización de política (PPO)
+Con el RM como juez, la fase de RL es donde el modelo "**practica**": genera miles de respuestas y el Reward Model lo **castiga o premia**. Se optimiza la política (el LLM) con **PPO (Proximal Policy Optimization)**:
+$$L(\theta) = \mathbb{E}_t\left[\min\left(r_t(\theta)\hat A_t,\ \text{clip}(r_t(\theta), 1-\varepsilon, 1+\varepsilon)\hat A_t\right)\right]$$
+- $r_t(\theta)$: ratio entre la política nueva y la vieja. $\hat A_t$: ventaja estimada (cuánto mejor que el promedio fue la acción, según el RM). El **clip** evita cambios demasiado grandes en un solo paso.
+
+Crucialmente, se agrega una **penalización de divergencia KL** contra el modelo SFT de referencia: asegura que el modelo mejore **sin alejarse drásticamente de lo que ya sabía** (evita que "colapse" explotando el RM y olvide el lenguaje). Este es el equilibrio central de RLHF: maximizar recompensa **pero** quedarse cerca del modelo original.
+
+### 8.6.1 Esquema de RL general y cómo aplica a RLHF
+
+**El loop de RL — componentes y flujo**
+
+```
+┌─────────────────────────────────────────────────────────┐
+│                       ENVIRONMENT                       │
+│                                                         │
+│   recibe a_t, calcula:  s_{t+1} = f(s_t, a_t)         │
+│                          r_t    = R(s_t, a_t, s_{t+1}) │
+└──────────────┬───────────────────────┬──────────────────┘
+               │ s_t (estado actual)   │ r_t (reward)
+               ▼                       ▼
+┌─────────────────────────────────────────────────────────┐
+│                         AGENT                           │
+│                                                         │
+│   Policy  π(a_t | s_t)  →  elige la acción             │
+│   Value   V(s_t)         →  estima recompensa futura    │
+│                                                         │
+│   (durante training: r_t actualiza θ vía gradiente)    │
+└──────────────────────────┬──────────────────────────────┘
+                           │ a_t
+                           ▼
+                    (vuelve al Environment)
+```
+
+Glosario de variables del loop:
+- **t**: índice de tiempo (paso actual dentro de un episodio/secuencia).
+- **s_t**: **State** — representación del mundo en el tiempo t. Le dice al agente dónde está. En un LLM: prompt + tokens generados hasta el paso t.
+- **a_t**: **Action** — lo que el agente decide hacer en el paso t. La elige la policy. En un LLM: el próximo token generado.
+- **r_t**: **Reward** — feedback escalar que *emite el entorno* después de que el agente tomó a_t en s_t. **No es parte del state** — son dos outputs separados del entorno: s_{t+1} (cómo quedó el mundo) y r_t (qué tan buena fue esa acción). En un LLM: 0 en cada paso intermedio, score del reward model al terminar la respuesta.
+- **s_{t+1}**: el nuevo estado después de que el entorno procesó la acción a_t.
+- **π(a|s)**: **Policy** — función que mapea estado → distribución de probabilidad sobre acciones. **En inferencia es agnóstica al reward**: solo recibe s_t y devuelve una distribución. El agente samplea a_t de esa distribución. En entrenamiento, el reward modifica los parámetros θ de la policy, pero no entra como input directo.
+- **V(s)**: **Value function** — estima la recompensa acumulada futura esperada si se está en el estado s siguiendo la política actual. No elige acciones — ayuda a entrenar mejor (ver más abajo).
+- **θ**: parámetros (pesos) del modelo que representa la policy. Es lo que el entrenamiento actualiza.
+
+**Dos familias de RL: value-based vs. policy-based**
+
+### Q-learning (value-based)
+
+En vez de aprender π directamente, se aprende **Q(s, a)**: el valor esperado de tomar la acción a en el estado s y después seguir la política óptima.
+
+```
+Q(s, a) = E[ r_t + γ·r_{t+1} + γ²·r_{t+2} + ... ]
+```
+
+- **Q(s, a)**: "Q-value" o "action-value" — cuánta recompensa acumulada esperás si tomás la acción a en el estado s.
+- **γ** (gamma): factor de descuento ∈ [0,1]. Pondera cuánto importan las recompensas futuras vs. las inmediatas. γ=0 → solo importa r_t; γ=1 → todas las recompensas futuras valen igual.
+- La sumatoria `r_t + γ·r_{t+1} + γ²·r_{t+2} + ...` es el **retorno descontado** — la recompensa total ponderada por cuán lejos en el futuro ocurre.
+
+La policy es **implícita** — no se aprende explícitamente:
+
+```
+π*(s) = argmax_a Q(s, a)   → siempre elegí la acción con mayor Q
+```
+
+**¿Cómo se aprende Q?** Con la ecuación de Bellman usada como target iterativo:
+
+```
+Q(s, a) ← Q(s, a) + α · [ r + γ·max_{a'} Q(s', a') − Q(s, a) ]
+                                    ↑                    ↑
+                             target (lo que debería ser)  estimación actual
+```
+
+- **α** (alpha): tasa de aprendizaje — cuánto se actualiza Q en cada paso.
+- **r**: reward recibido al hacer a en s.
+- **s'**: el nuevo estado después de hacer a.
+- **max_{a'} Q(s', a')**: el mejor Q posible desde el nuevo estado — el "bootstrap" (estimar usando tu propia estimación anterior).
+- **La diferencia entre los dos términos** se llama **TD error** (Temporal Difference error): qué tan equivocada estaba tu estimación de Q. El algoritmo la minimiza iterativamente.
+
+**Problema con Q-learning en LLMs**: el espacio de acciones es el vocabulario completo (|V| ≈ 50K tokens). Hacer `argmax_a Q(s,a)` sobre 50K opciones en cada paso de tiempo es inviable. Por eso RLHF no usa Q-learning.
+
+### Policy Gradient (policy-based — lo que usa PPO)
+
+En vez de aprender Q e inferir la policy, **la policy π_θ(a|s) es el objeto que se optimiza directamente**. El objetivo es maximizar la recompensa esperada:
+
+```
+J(θ) = E_π[ G_t ]
+```
+
+- **J(θ)**: función objetivo — la recompensa acumulada esperada bajo la política π_θ. Es lo que se maximiza.
+- **G_t**: **retorno** desde el paso t — la suma de recompensas futuras (posiblemente descontadas) que el agente efectivamente recibió en ese episodio:
+
+```
+G_t = r_t + γ·r_{t+1} + γ²·r_{t+2} + ... + γ^{T-t}·r_T
+```
+
+  G_t no es una estimación — es el retorno *observado* en un episodio real. La diferencia con Q(s,a): Q es el valor *esperado* (promedio sobre muchos episodios), G_t es lo que pasó en *este* episodio concreto.
+
+El **gradiente de política** (policy gradient theorem) dice:
+
+```
+∇_θ J(θ) = E[ ∇_θ log π_θ(a_t | s_t) · G_t ]
+```
+
+- **∇_θ log π_θ(a_t | s_t)**: en qué dirección cambiar θ para aumentar la log-probabilidad de la acción a_t que se tomó.
+- **G_t**: cuánto peso darle a ese cambio. Si G_t fue alto (acción que llevó a mucha recompensa) → subí la probabilidad de esa acción. Si fue bajo → bajala.
+
+**El problema de G_t**: tiene alta varianza — un solo episodio puede ser ruidoso. Solución: restarle una **baseline** (línea base), típicamente V(s_t).
+
+### V(s) — para qué sirve exactamente
+
+```
+V(s_t) = E_π[ G_t | s_t ]
+```
+
+- **V(s_t)**: recompensa acumulada *esperada* desde el estado s_t siguiendo la política actual. Es el "promedio histórico" de G_t cuando el agente está en ese estado.
+
+Se usa para calcular la **ventaja** A_t:
+
+```
+A_t = G_t − V(s_t)
+        ↑        ↑
+  lo que pasó  lo que esperabas que pasara
+```
+
+- **A_t > 0**: la acción fue *mejor* que el promedio esperado → aumentá su probabilidad.
+- **A_t < 0**: fue *peor* → bajala.
+- **Por qué reduce la varianza**: G_t varía mucho entre episodios; V(s_t) es relativamente estable (es un promedio). La diferencia A_t oscila menos que G_t crudo, haciendo el gradiente más preciso.
+
+V(s) no sirve para elegir acciones directamente. Es un **auxiliar de entrenamiento** — existe para que el gradiente de la policy sea menos ruidoso.
+
+### Actor-Critic (lo que PPO usa)
+
+```
+ACTOR  = π_θ(a|s)   — elige acciones, se actualiza subiendo/bajando prob según A_t
+CRITIC = V_φ(s)     — predice G_t, se actualiza para que su predicción mejore
+```
+
+- **φ**: parámetros del value model (el critic). Se actualizan por separado de θ.
+
+Loop de entrenamiento Actor-Critic:
+
+```
+1. Actor genera a_t ~ π_θ(·|s_t)
+2. Entorno devuelve r_t y s_{t+1}
+3. Critic calcula el TD error (aproximación de la ventaja):
+      A_t ≈ r_t + γ·V_φ(s_{t+1}) − V_φ(s_t)
+4. Actor actualiza θ:  sube prob de a_t si A_t > 0, la baja si A_t < 0
+5. Critic actualiza φ: minimiza el error de predicción de V_φ
+```
+
+PPO agrega el **clip** al ratio entre la policy nueva y la vieja — evita que el actor cambie demasiado en un solo paso (análogo a la KL, pero más estable numéricamente).
+
+**Diferencia clave Q-learning vs. Policy Gradient**
+
+| | Q-learning | Policy Gradient (PPO) |
+|---|---|---|
+| ¿Qué aprende? | Q(s,a) — valor de pares estado-acción | π_θ(a\|s) — directamente la policy |
+| ¿Policy explícita? | No — implícita vía argmax Q | Sí — π_θ es el modelo |
+| ¿Escala con \|acciones\| enorme? | No — argmax inviable | Sí — samplea de π_θ directamente |
+| ¿V(s)? | Derivable: V(s) = max_a Q(s,a) | Critic separado, reduce varianza del gradiente |
+
+**Por eso RLHF usa PPO y no Q-learning**: el espacio de acciones es el vocabulario entero (|V| ≈ 50K tokens). La policy gradient no necesita hacer argmax — samplea directamente de π_θ, que es exactamente lo que el LLM ya hace en inferencia.
+
+**Mapeo al "Environment" en RLHF**
+
+```
+  s_t     = prompt x + tokens generados hasta t
+  a_t     = el próximo token y_t
+  s_{t+1} = s_t + y_t   (se concatena el token al contexto)
+  r_t     = 0            para t < T  (pasos intermedios, reward sparse)
+            RM(x, y)     para t = T  (al completar la respuesta)
+```
+
+El Reward Model hace el papel del entorno que evalúa acciones. La penalidad KL contra π_ref se suma como parte del reward total:
+
+```
+  r_total = RM(x, y) − β · KL(π_θ(·|x) || π_ref(·|x))
+```
+
+- **β**: hiperparámetro que controla cuánto penalizar el alejamiento de la referencia. β alto → el modelo se mantiene conservador; β bajo → más libertad para optimizar el reward.
+
+### 8.6.2 Los 4 modelos de RLHF: roles y flujo de entrenamiento
+
+**Por qué el reward model no puede usarse directamente con backprop**
+
+El RM evalúa una *secuencia ya generada*. Entre los parámetros θ del LLM y ese score existe un paso de **sampling discreto** — el modelo muestrea tokens uno a uno. No existe ∂(token_sampleado)/∂θ porque el sampling es una operación discreta, no diferenciable. Esto contrasta con el pretraining:
+
+```
+Pretraining:  θ → distribución → log P(y* | x)  →  backprop OK
+                                        ↑
+                                   y* viene del corpus (fijo, no depende de θ)
+
+RLHF:         θ → distribución → sample → y → reward(y)  →  no diferenciable
+                                    ↑
+                              acá se rompe el gradiente
+```
+
+En pretraining nunca hay que diferenciar a través de un sampling: el token target está dado. En RLHF la recompensa depende del resultado del sampling — y esa dependencia no es diferenciable. Por eso se necesita RL: el **policy gradient** estima cómo cambiar θ para aumentar r en expectativa, sin necesitar esa derivada.
+
+**Los 4 modelos y sus roles**
+
+| Modelo | Rol | ¿Se actualiza? |
+|---|---|---|
+| **Policy** (π_θ) | El LLM que se entrena. Genera tokens (la "acción"). | Sí — objetivo del entrenamiento |
+| **Reference** (π_ref) | Copia congelada del SFT. Ancla para la penalidad KL. | No — siempre congelado |
+| **Reward Model** (RM) | Evalúa la calidad de la respuesta completa. Da r(x, y) ∈ ℝ. | No — congelado durante PPO |
+| **Value Model** (critic) | Estima la recompensa futura esperada desde el estado actual. Necesario para calcular la ventaja Â_t. | Sí — se co-entrena con la policy |
+
+**Mapeo al esquema de RL clásico**
+
+```
+Estado    = prompt x + tokens generados hasta ahora (y₁, ..., y_{t-1})
+Acción    = el próximo token y_t  (no la secuencia entera)
+Policy    = π_θ(y_t | x, y_{<t})
+Reward    = 0 en cada paso; r(x,y) del RM al completar la secuencia → reward sparse
+```
+
+La recompensa es **sparse**: solo llega al final de la secuencia. El value model existe justamente para estimar el "futuro esperado" en cada paso intermedio, ya que el RM no da señal hasta el final.
+
+**Flujo de un paso de entrenamiento PPO (los 4 modelos en acción)**
+
+```
+1.  Policy (π_θ) recibe prompt x → genera respuesta y = (y₁,...,y_T) token a token
+
+2.  Reward Model evalúa (x, y) → r(x,y) ∈ ℝ
+    Reference (π_ref) evalúa (x, y) → computa penalidad KL:
+
+    r_total = r(x,y) - β · KL(π_θ(·|x) || π_ref(·|x))
+
+    (si π_θ se aleja mucho de π_ref, la penalidad frena el alejamiento)
+
+3.  Value Model estima V(s_t) para cada paso t
+    → cuánta recompensa futura se espera desde ese estado
+
+4.  Ventaja: Â_t = r_total - V(s_t)
+    → ¿cuánto mejor que lo esperado fue esta acción?
+
+5.  PPO actualiza π_θ y el Value Model usando Â_t con el clip de la fórmula (8.6)
+
+6.  π_ref y RM quedan congelados durante todo este ciclo
+```
+
+### 8.6.3 Cómputo de π_θ y V_φ, y la actualización PPO en detalle
+
+**Cómputo de π_θ (la policy = el LLM)**
+
+π_θ es literalmente el LLM. El forward pass es el mismo de inferencia:
+
+```
+Input:   s_t = secuencia de tokens (prompt + tokens generados hasta ahora)
+              → tensor de ids enteros de forma (batch, t)
+
+Forward: Embedding → capas Transformer → logits
+              → logits: tensor (batch, |V|)   ← un score por cada token del vocabulario
+
+Softmax: π_θ(a | s_t) = softmax(logits)
+              → distribución de probabilidad sobre |V| tokens
+
+Sample:  a_t ~ π_θ(·|s_t)   ← se samplea el próximo token de esa distribución
+```
+
+- **θ**: todos los parámetros del Transformer (matrices Q/K/V, FFN, embeddings, etc.).
+- Durante PPO se guarda el grafo computacional para poder calcular ∇_θ después.
+- Es idéntico al forward pass de inferencia — la diferencia es que en training se computa el gradiente.
+
+**Cómputo de V_φ (el critic = value model)**
+
+El value model también es un Transformer (en la práctica **comparte el backbone con la policy**), pero con una **value head**: una capa lineal que colapsa la representación a un escalar.
+
+```
+Input:   s_t = misma secuencia de tokens que ve la policy
+
+Forward: Embedding → capas Transformer (compartidas con π_θ) → hidden state h_t ∈ ℝ^d
+              ↓
+         Value head: V_φ(s_t) = W_v · h_t + b_v
+              → un solo número ∈ ℝ  (la recompensa futura esperada desde s_t)
+```
+
+- **h_t ∈ ℝ^d**: hidden state del último token de s_t. d = dimensión del modelo.
+- **W_v ∈ ℝ^{1×d}, b_v ∈ ℝ**: los parámetros de la value head — una sola capa lineal.
+- **φ**: parámetros del value model. Si comparte backbone con π_θ, φ incluye esos pesos compartidos + W_v y b_v.
+- Output ejemplo: `V_φ(s_t) = 0.73` → "desde este estado espero 0.73 de recompensa acumulada".
+- Como π_θ y V_φ comparten backbone, en la práctica hay **un solo forward pass** con dos heads de salida: la cabeza de logits (policy) y la value head (escalar).
+
+**La actualización de θ: gradient ascent sobre J_PPO**
+
+Sí, la actualización es vía gradient ascent (o equivalentemente descenso sobre −J):
+
+```
+θ ← θ + α · ∇_θ J_PPO(θ)
+```
+
+Pero el J de PPO **no es el J simple de policy gradient** (E[G_t]). PPO lo modifica para evitar actualizaciones demasiado grandes:
+
+```
+J_PPO(θ) = E_t [ min( ρ_t(θ) · Â_t ,  clip(ρ_t(θ), 1−ε, 1+ε) · Â_t ) ]
+```
+
+- **ρ_t(θ)** = π_θ(a_t | s_t) / π_θ_old(a_t | s_t): ratio entre la policy nueva y la vieja. Mide cuánto cambió la policy respecto a la que generó los datos de este batch.
+- **π_θ_old**: la policy *antes* del update actual — se congela al inicio de cada batch. Distinta de π_ref (que es el SFT congelado para la KL, nunca cambia).
+- **Â_t**: estimación de la ventaja para el paso t. Â_t > 0 → la acción fue mejor de lo esperado; Â_t < 0 → peor.
+- **ε**: hiperparámetro (típicamente 0.2). Define cuánto puede alejarse ρ_t de 1 antes de que el clip lo trunque.
+- **clip(ρ_t, 1−ε, 1+ε)**: si ρ_t sale del rango [1−ε, 1+ε], lo fuerza al borde. Impide que un update cambie demasiado la policy.
+- **min(...)**: elige el caso más conservador entre el objetivo sin clip y con clip — asegura que el gradiente nunca empuje más allá de lo que el clip permitiría.
+
+**Loss total de PPO (lo que realmente se minimiza)**
+
+En la práctica se optimiza una sola loss combinada:
+
+```
+L(θ, φ) = −J_PPO(θ)          ← policy loss  (−J porque se minimiza, equivale a maximizar J)
+         + c_1 · L_V(φ)       ← value loss: MSE entre V_φ(s_t) y el retorno real G_t
+         − c_2 · H[π_θ]       ← entropy bonus: penaliza policies demasiado deterministas
+```
+
+- **c_1, c_2**: coeficientes que ponderan cada término (hiperparámetros, típicamente c_1 ≈ 0.5, c_2 ≈ 0.01).
+- **L_V(φ)** = E_t[(V_φ(s_t) − G_t)²]: el critic se entrena para que su predicción V_φ(s_t) se acerque al retorno real G_t observado. Es un MSE estándar.
+- **H[π_θ]**: entropía de la distribución de la policy. Alta entropía = el modelo es "más dudoso" entre acciones = más exploración. El bonus −c_2·H penaliza entropía baja, forzando algo de exploración y evitando que la policy colapse a una sola acción.
+- Como π_θ y V_φ comparten backbone, un solo backward pass actualiza tanto θ como φ simultáneamente.
+
+### 8.7 La fricción técnica de RLHF
+RLHF funciona pero es **caro y frágil** — tres problemas prácticos:
+- **Inestabilidad**: entrenar PPO es un "ballet" matemático difícil de estabilizar (muy sensible a hiperparámetros).
+- **Costo de VRAM**: requiere cargar **4 modelos** en memoria simultáneamente — **Policy** (el que se entrena), **Value** (estima la ventaja), **Reference** (el SFT congelado, para la KL) y **Reward** (el juez).
+- **Lentitud**: el muestreo **online** (generar respuestas durante el entrenamiento) consume días de cómputo.
+
+Estas tres fricciones son exactamente lo que la siguiente técnica (DPO) viene a eliminar.
+
+### 8.8 DPO — la vía directa
+**Direct Preference Optimization (DPO)** elimina la necesidad de un Reward Model explícito y de algoritmos de refuerzo complejos. La idea: tratar la alineación como una simple **tarea de clasificación** — "**aumentá la probabilidad de la respuesta elegida y disminuí la de la rechazada**", directamente sobre los pares de preferencia.
+
+**Por qué DPO no tiene el problema del sampling**
+
+DPO trabaja con un dataset de pares de preferencia recolectados **antes** del entrenamiento:
+
+```
+Dataset DPO: triples (x, y_w, y_l)
+  x   = prompt
+  y_w = respuesta preferida  (generada y etiquetada offline, antes de entrenar)
+  y_l = respuesta rechazada  (ídem)
+```
+
+Durante el training loop, DPO solo hace forward passes sobre **secuencias fijas** — igual que SFT con causal masking:
+
+```
+SFT (causal masking):
+  Input:  (prompt + respuesta) como secuencia fija y*
+  Loss:   -Σ_t log π_θ(y*_t | x, y*_{<t})   ← cross-entropy sobre tokens fijos
+
+DPO (mismo mecanismo de cómputo):
+  Forward sobre (x + y_w) → log π_θ(y_w|x) = Σ_t log π_θ(y_w_t | x, y_w_{<t})
+  Forward sobre (x + y_l) → log π_θ(y_l|x) = Σ_t log π_θ(y_l_t | x, y_l_{<t})
+  Forward sobre (x + y_w) con π_ref congelada → log π_ref(y_w|x)
+  Forward sobre (x + y_l) con π_ref congelada → log π_ref(y_l|x)
+```
+
+Como y_w e y_l son secuencias fijas, no hay sampling → todo es diferenciable → backprop normal.
+
+Comparación con RLHF:
+
+```
+RLHF:  genera y online durante training → RM evalúa y → no diferenciable
+                ↑
+          sampling (el problema)
+
+DPO:   y_w e y_l ya están en el dataset → forward pass sobre secuencias fijas → backprop OK
+```
+
+**La diferencia entre SFT y DPO: qué hace cada uno con los log-probs**
+
+SFT solo sube la probabilidad de la respuesta buena:
+
+```
+L_SFT = -log π_θ(y_w | x)    ← solo mira y_w, ignora y_l
+```
+
+DPO hace algo más sofisticado: sube la probabilidad de y_w **y** baja la de y_l, **ancladas a la referencia**:
+
+```
+L_DPO = -E[ log σ( β·log(π_θ(y_w|x)/π_ref(y_w|x))
+                  - β·log(π_θ(y_l|x)/π_ref(y_l|x)) ) ]
+```
+
+- **σ**: función sigmoide — convierte la diferencia en una probabilidad, como en clasificación binaria.
+- **β**: controla cuánto puede alejarse π_θ de π_ref. β alto → se mantiene cerca de la referencia.
+- **log(π_θ(y_w|x)/π_ref(y_w|x))**: cuánto más probable hace π_θ a y_w respecto a la referencia. Si este ratio es positivo, la policy actual ya prefiere y_w más que el modelo base.
+- **log(π_θ(y_l|x)/π_ref(y_l|x))**: ídem para y_l. La loss empuja este término a ser negativo.
+- La loss es máxima cuando el margen entre los dos ratios es grande: la policy prefiere y_w sobre y_l **más de lo que ya lo hacía π_ref**.
+
+**Por qué el ancla a π_ref es necesaria**: sin ella, la loss podría simplemente bajar la probabilidad de y_l a cero sin subir y_w, o colapsar el modelo a generar solo respuestas muy cortas que tienen alta probabilidad por longitud. π_ref actúa como regularizador — el mismo rol que la penalidad KL en RLHF.
+
+**Qué modelos necesita DPO** (vs. los 4 de RLHF):
+
+| Modelo | RLHF (PPO) | DPO |
+|---|---|---|
+| Policy (π_θ) | Sí | Sí |
+| Reference (π_ref) | Sí (ancla KL) | Sí (ancla loss) |
+| Reward Model (RM) | Sí | **No** — reward implícito en la loss |
+| Value Model (critic) | Sí | **No** — no hay loop de RL |
+
+DPO elimina RM y Value Model. Solo necesita π_θ y π_ref.
+
+El truco matemático (clave de examen): DPO demuestra que la política óptima de RLHF tiene una forma cerrada en términos del reward, lo que permite reescribir el objetivo de RLHF como una pérdida **supervisada directa** sobre los datos de preferencia $(x, y_w, y_l)$, sin entrenar nunca un RM ni hacer sampling online.
+
+El reward queda **implícito** dentro de la propia política ($\pi_\theta$ vs. la referencia $\pi_\text{ref}$). En la práctica se entrena casi como un SFT: pares elegido/rechazado, una loss, backprop.
+
+```python
+# DPO con la librería trl (esquema conceptual)
+from trl import DPOTrainer, DPOConfig
+
+# dataset: cada ejemplo tiene {"prompt", "chosen" (y_w), "rejected" (y_l)}
+trainer = DPOTrainer(
+    model=modelo_sft,          # se parte del modelo ya pasado por SFT (8.1)
+    ref_model=modelo_sft_ref,  # copia congelada = pi_ref (para la razón de log-probs)
+    args=DPOConfig(beta=0.1),  # beta controla cuánto puede alejarse de la referencia (análogo a la KL de PPO)
+    train_dataset=pares_de_preferencia,
+)
+trainer.train()  # sube P(chosen) y baja P(rejected) — sin Reward Model ni PPO
+```
+
+### 8.9 Comparativa: RLHF vs. DPO
+La tabla de examen que resume la diferencia:
+
+| Característica | **RLHF (PPO)** | **DPO** |
+|---|---|---|
+| Modelo de recompensa | **Explícito** (necesita un modelo extra) | **Implícito** (integrado en el LLM) |
+| Estabilidad | **Baja** (muy sensible a hiperparámetros) | **Alta** (es una pérdida ~convexa) |
+| Eficiencia | **Lento** (inferencia/sampling en el loop) | **Rápido** (similar a un SFT estándar) |
+
+### 8.10 El futuro: Scalable Oversight
+**¿Qué elegir hoy?** (perspectiva 2026):
+- **DPO + SFT**: el estándar actual para la mayoría de casos empresariales, por su facilidad de despliegue y resultados competitivos.
+- **RLHF (online)**: sigue siendo superior para tareas de **razonamiento extremo** (matemáticas, código) donde el feedback debe ser **dinámico** (verificar si el código corre, si la demostración es correcta) — esto conecta con el RL de razonamiento de la Clase 9 (9.10).
+
+Y el horizonte de fondo — **Scalable Oversight**: a medida que los modelos **superan la capacidad de evaluación humana**, la alineación se hará mediante **IA supervisando a otras IAs** (**Constitutional AI**: el modelo se critica y corrige a sí mismo según un conjunto de principios escritos, reduciendo la necesidad de anotadores humanos). Es la respuesta a la pregunta incómoda: ¿cómo alinear un modelo que sabe más que quien debería evaluarlo?
+
+---
+
+## 9. Sistemas Agénticos: más allá del chatbot (Clase 9 — 01-07)
+
+### Por qué surge esta clase
+Al terminar las clases 6-8 ya sabemos construir un LLM **alineado**: `Pre-training → SFT → RLHF/DPO`. Pero ese modelo, por más alineado que esté, es un **"cerebro en una cubeta"**: un ente **estático, aislado y pasivo**. No puede consultar información nueva, no calcula con exactitud, no recuerda más allá de su ventana de contexto, y no *actúa* sobre el mundo. Esta última clase marca un cambio de foco radical: ya no se trata de mejorar el **modelo**, sino de construir un **sistema** a su alrededor. La tesis que cierra el curso: **"un modelo no es un sistema"**.
+
+### 9.1 El muro del Transformer
+El Transformer aislado tiene **limitaciones inherentes**, cada una con su **solución sistémica** (no arquitectónica — se resuelven *rodeando* al modelo, no cambiándolo):
+
+| Limitación inherente | Solución sistémica |
+|---|---|
+| Conocimiento estático / desactualizado | **Recuperación externa (RAG)** — clase 7 |
+| Incapacidad aritmética y de cómputo exacto | **Invocación de herramientas (Tools)** |
+| Miopía en tareas largas | **Planificación global (Planning)** |
+| Ventana de contexto finita | **Gestión de memoria (episódica / semántica)** |
+| Pasividad absoluta | **Ejecución de acciones (APIs)** |
+
+Toda la clase desarrolla las filas de esta tabla. Notar que la primera fila ya la resolvimos (RAG, clase 7): es literalmente el **primer componente** del sistema agéntico.
+
+### 9.2 RAG: el primer componente del sistema
+RAG (clase 7) se reinterpreta aquí como el primer ladrillo del sistema: `Base de Datos Vectorial → Extracción de Chunks → [PROMPT dinámico] → LLM`. Los recuperados se insertan en un prompt que **cambia en cada consulta**. Dos **axiomas de RAG** que hay que tener clarísimos:
+1. **El modelo NO aprende nuevos pesos** — no hay entrenamiento en tiempo de uso.
+2. **Toda la "magia" ocurre mutando el contexto temporalmente** — se modifica la *entrada* (el prompt), no el modelo.
+
+Esta idea — "cambiar el comportamiento mutando el contexto en vez de los pesos" — es el principio unificador de **todo** lo agéntico (in-context learning, 0.5): tools, memoria y planning son todas formas de inyectar información en el contexto en el momento justo.
+
+### 9.3 Tool Calling — el modelo como selector estocástico
+Cómo un LLM que no sabe sumar responde "¿cuál es el PIB per cápita de Argentina dividido por el de Chile?":
+- **Sin tools**: el modelo intenta recordar los números y calcular → **alucinación** (generación errónea).
+- **Con tools**: el modelo, en vez de responder, emite una **firma JSON** de función — p. ej. `get_gdp(country="Argentina")`. Un **Runtime** (el "sistema operativo" alrededor del modelo) ejecuta esa función contra una API real (Banco Mundial), obtiene el resultado ($13.000, $15.000), y lo **inyecta de vuelta en el prompt**. El modelo entonces genera la respuesta final con datos reales.
+
+**El insight crucial** (clave de examen): **el modelo NO ejecuta código**. El modelo solo **emite firmas estructuradas de funciones** (texto JSON); quien ejecuta es el runtime determinista externo. El LLM es un "**selector estocástico**": decide *qué* herramienta llamar y *con qué argumentos*, pero la ejecución vive fuera de la red neuronal. Esto resuelve las filas "aritmética" y "pasividad" de la tabla 9.1.
+
+### 9.4 Chain of Thought — razonamiento
+**Chain of Thought (Wei et al., 2022)**: en vez de que el modelo salte del input complejo a la respuesta (caja negra → a menudo respuesta incorrecta/alucinada), se le induce a **generar trazas intermedias** paso a paso ("Paso 1... Paso 2... Por lo tanto...") antes de la conclusión — lo que mejora drásticamente la precisión en tareas de razonamiento.
+
+**Por qué funciona** (el insight profundo): razonar en un LLM es un **acto probabilístico**. Emitir los tokens intermedios **altera el estado atencional del Transformer** — cada token generado entra como contexto de los siguientes (autorregresión, 5.10), condicionando matemáticamente la distribución hacia una conclusión correcta. Es decir: el modelo no "piensa y después habla"; **hablar (generar tokens) ES pensar** — los tokens intermedios son el sustrato físico del cómputo. Esto también explica por qué CoT consume más tokens = más cómputo (conecta con 9.6).
+
+### 9.5 Reasoning vs. Planning
+Diferenciación crítica entre dos capacidades que suelen confundirse:
+
+| | **Reasoning (local)** | **Planning (global)** |
+|---|---|---|
+| Definición | Resolver el siguiente paso lógico de manera **secuencial**; trazas internas (CoT) | **Descomposición** de tareas abstractas, evaluación de **estados futuros** y corrección de ruta |
+| Estructura | Cadena lineal (Paso 1 → 2 → 3) | Árbol con ramas, **backtracking** (descartar ramas fallidas y volver atrás) |
+| Ejemplo | Resolver un teorema matemático paso a paso | Orquestar la reserva completa de unas vacaciones complejas |
+
+Reasoning es **local** (el próximo paso); Planning es **global** (explorar y comparar múltiples caminos posibles, deshacer decisiones). Un agente potente necesita ambos: CoT para cada paso, y planning para la estrategia general. Planning resuelve la fila "miopía en tareas largas" de 9.1.
+
+### 9.6 Test-Time Compute: nuevas scaling laws
+Un cambio de paradigma reciente. **Históricamente** se escalaba el **pre-training** (más parámetros, más datos → mejor modelo, las scaling laws de la clase 6). **Hoy** se escala la **búsqueda en inferencia**: dedicar más **tiempo y cómputo durante la respuesta** (generar más trazas de razonamiento, explorar más caminos, auto-verificar) mejora la accuracy en tareas complejas — es una **nueva curva de scaling** sobre el eje "inference compute".
+
+Esto dio lugar a los **modelos de razonamiento puro** (o1, DeepSeek-R1): entrenados (vía RL, conecta con 8.10) para "pensar largo" antes de responder. El resumen: *antes pagábamos en entrenamiento, ahora también pagamos en inferencia* — y para muchas tareas eso rinde más.
+
+### 9.7 Anatomía de un agente autónomo
+Juntando todo, un **agente autónomo** es un sistema con el **LLM en el centro** actuando como **"CPU heurística / motor de ruteo"** (decide qué hacer en cada paso), rodeado de cuatro módulos:
+- **Working Memory (context window)**: la memoria de trabajo inmediata — lo que está en el prompt ahora.
+- **Long-term Memory (vectores)**: memoria persistente vía vector store (RAG, clase 7) — resuelve la "ventana finita" de 9.1.
+- **Tools / Actuators (APIs, browsers)**: cómo actúa sobre el mundo (9.3).
+- **Planning Module (partición de tareas)**: cómo descompone el objetivo (9.5).
+
+**Definición**: un sistema que recibe un **objetivo**, **itera** decidiendo acciones, **observa** el entorno, **ajusta** su plan y **converge** al objetivo. Ese loop `decidir → actuar → observar → ajustar` es la esencia de lo agéntico (es el mismo esquema que un ciclo de control con retroalimentación).
+
+### 9.8 Orquestación: el Harness vs. el Framework
+Punto contraintuitivo y muy enfatizado: **el Harness es más importante que el Framework**. Los frameworks de moda (LangGraph, AutoGen, OpenAI Agents SDK, Semantic Kernel, CrewAI) **cambian cada 6 meses** — son la capa superficial. Lo que realmente define al agente es **The Orchestration Loop**, un programa **determinista** que envuelve al modelo:
+$$\text{Dynamic Prompts} \to \text{JSON Parsing estricto} \to \text{Error Retries} \to \text{Context Window Truncation} \to \text{Tool Execution} \to (\text{loop})$$
+
+**El insight** (clave de examen): **el Agente NO es el modelo neuronal**. El agente es **este programa determinista subyacente** que lo orquesta — el que arma los prompts dinámicos, parsea las firmas JSON (9.3), reintenta ante errores, trunca el contexto cuando se llena, y ejecuta las herramientas. El LLM es solo una pieza (el "selector estocástico") dentro de un sistema de software clásico e ingenierilmente robusto.
+
+### 9.9 Evaluación de sistemas estocásticos
+Evaluar agentes rompe la evaluación clásica. Un **benchmark estático** (MMLU, HumanEval — accuracy sobre un set fijo) **ya no alcanza**: mide el modelo, no el sistema. La **evaluación sistémica** de agentes usa métricas nuevas:
+- **Task Success Rate**: éxito **end-to-end** del objetivo (¿completó la tarea?, p. ej. 87.5%) — la métrica reina.
+- **Tool Accuracy**: precision/recall en la **invocación de herramientas** (¿llamó la API correcta con los argumentos correctos?, p. ej. P:92% / R:89%).
+- **Loop Latency**: tiempo total de ida y vuelta del sistema (p. ej. 350 ms por iteración) — importa porque el loop corre muchas veces.
+- **Cost Analysis & Traceability**: consumo de **tokens** en razonamiento y reintentos (p. ej. $0.12 / 12.5K tokens) — cada paso de CoT y cada retry cuesta.
+
+El cambio de mentalidad: se evalúa un **proceso estocástico multi-paso**, no una respuesta única — más parecido a testear un sistema distribuido que a medir accuracy.
+
+### 9.10 Destilación de razonamiento
+Cómo hacer viable el razonamiento a escala (el costo de 9.6 es prohibitivo para producción). Un **Teacher Model** grande (100B+ params) genera **trazas de razonamiento perfectas** a alto costo; un **Filtro (RL)** descarta las ramas lógicas fallidas (se queda solo con las trazas que llegaron a la respuesta correcta); y con esas trazas depuradas se entrena un **Student Model** chico (7B params) — **Reasoning Distillation**. Resultado: **modelos de borde** eficientes que exhiben habilidades lógicas sorprendentes **sin el costo de inferencia gigantesco** del maestro. Es la destilación de 6.11, pero destilando *razonamiento* (el proceso) en vez de solo predicciones (el output) — y así se explica cómo modelos chicos recientes "razonan" casi como los grandes.
+
+### 9.11 El horizonte de expansión
+Hacia dónde va el campo (y con esto cierra el curso):
+- **Reasoning Models (nativos)**: modelos que razonan por diseño, no por prompting (9.6).
+- **MCP (Model Context Protocol)**: un estándar para conectar modelos con herramientas y fuentes de datos de forma uniforme (estandariza el tool calling de 9.3).
+- **Computer Use**: agentes que controlan interfaces gráficas (mouse/teclado) como un humano.
+- **Browser & Coding Agents**: agentes que navegan la web y escriben/ejecutan código de forma autónoma.
+- **Multimodal & Scientific Agents**: agentes que integran visión/audio y asisten en descubrimiento científico.
+
+**Conclusión del curso**: **un modelo no es un sistema.** En cinco años, entrenar Transformers será una *commodity*; **orquestar y evaluar sistemas agénticos** alrededor de ellos será el trabajo central del Computer Scientist moderno. Así se cierra el arco que empezó contando palabras con n-gramas (clase 1): del *conteo* al *sistema autónomo*.
+
 ---
 
 # Anexos de repaso
 
 A partir de aquí el documento deja de ser narrativo (clase por clase) y pasa a material de consulta rápida: diagramas, preguntas de repaso, glosario de fórmulas y respuestas. Cada anexo reutiliza y reorganiza el contenido de las secciones 0-6 — no agrega teoría nueva.
 
-## 7. Diagramas de Arquitecturas
+## 10. Diagramas de Arquitecturas
 
 Diagramas Mermaid de cada arquitectura relevante, con la explicación de qué hace cada bloque. Útiles para poder dibujarlos de memoria en el examen (GitHub y la mayoría de los visores Markdown renderizan Mermaid automáticamente). Ordenados siguiendo la misma evolución cronológica del resumen (3→4→5→6).
 
-## 7.1 Skip-gram (Word2Vec)
+## 10.1 Skip-gram (Word2Vec)
 
 ```mermaid
 flowchart LR
@@ -1092,7 +1833,7 @@ flowchart LR
 ```
 **Explicación:** la palabra objetivo $w_t$ se proyecta a un vector denso vía $W$ (esa es la matriz que terminamos usando como "los embeddings"); luego $W'$ proyecta de nuevo al espacio del vocabulario para predecir cada palabra de la ventana de contexto. El entrenamiento ajusta $W$ y $W'$ para que esa predicción sea correcta; el embedding final es lo que la red "necesitó aprender" en $W$ para lograrlo. CBOW es la misma red con el flujo invertido (contexto → centro).
 
-## 7.2 RNN (desenrollada en el tiempo)
+## 10.2 RNN (desenrollada en el tiempo)
 
 ```mermaid
 flowchart LR
@@ -1110,7 +1851,7 @@ flowchart LR
 ```
 **Explicación:** $h_t=\tanh(Wh_{t-1}+Ux_t+b)$. La misma matriz $W$ se reusa en cada paso de tiempo (de ahí que el tamaño del modelo no dependa del largo de la secuencia) — pero esto también es la causa de vanishing/exploding gradients: multiplicar por $W$ una y otra vez, $T$ veces, durante BPTT. Cada $h_t$ es la "memoria" acumulada hasta el paso $t$; $o_t=Vh_t$ y $\hat y_t=\text{softmax}(o_t)$ es la predicción en ese paso (p.ej. la próxima palabra).
 
-## 7.3 Celda LSTM (un solo paso de tiempo)
+## 10.3 Celda LSTM (un solo paso de tiempo)
 
 ```mermaid
 flowchart TD
@@ -1137,7 +1878,7 @@ flowchart TD
 ```
 **Explicación:** el `[h_{t-1}, x_t]` concatenado alimenta **cuatro** transformaciones lineales+activación: forget gate $f_t$ (qué borrar de la memoria), input gate $i_t$ (cuánto deja pasar la nueva info), contenido candidato $\tilde c_t=\tanh(\cdot)$ (qué información nueva hay), y output gate $o_t$ (qué parte de la memoria exponer como $h_t$). La clave es que $c_t = f_t\odot c_{t-1} + i_t\odot\tilde c_t$ es una actualización con un componente **aditivo**: el gradiente puede fluir hacia atrás por la "autopista" de $c_t$ sin pasar por $T$ multiplicaciones consecutivas de una matriz de pesos, evitando el vanishing gradient.
 
-## 7.4 Celda GRU (un solo paso de tiempo)
+## 10.4 Celda GRU (un solo paso de tiempo)
 
 ```mermaid
 flowchart TD
@@ -1163,7 +1904,7 @@ flowchart TD
 ```
 **Explicación:** GRU fusiona el forget+input gate de LSTM en un solo **update gate** $z_t$, y no tiene cell state separado — solo $h_t$. El **reset gate** $r_t$ controla cuánto del estado anterior se usa para calcular el contenido candidato $\tilde h_t$. $h_t=(1-z_t)\odot h_{t-1}+z_t\odot\tilde h_t$ es un promedio ponderado entre "quedarse con lo viejo" y "adoptar lo nuevo" — menos parámetros que LSTM (3 matrices de peso en vez de 4) pero la misma idea de fondo: permitir que el gradiente fluya sin atravesar puras multiplicaciones.
 
-## 7.5 Seq2seq con Atención (Encoder-Decoder + RNN)
+## 10.5 Seq2seq con Atención (Encoder-Decoder + RNN)
 
 ```mermaid
 flowchart LR
@@ -1189,7 +1930,7 @@ flowchart LR
 ```
 **Explicación:** el encoder corre normalmente y guarda **todos** sus hidden states $h_1,\ldots,h_T$ (no solo el último, como en seq2seq vanilla). En cada paso $i$ del decoder, su estado actual $a_i$ hace de "query": se compara contra cada $h_j$ (scores), se normaliza con softmax (pesos $w_{ij}$), y se construye un vector de contexto $Y_i$ como combinación ponderada de los $h_j$. Ese $Y_i$ —junto con $a_i$— se usa para generar la salida del paso $i$. Esto es exactamente el germen de Q/K/V de los Transformers, solo que aquí $Q=a_i$ y $K=V=h_j$ vienen de dos RNNs distintas (encoder y decoder).
 
-## 7.6 Self-Attention (un bloque, Transformer)
+## 10.6 Self-Attention (un bloque, Transformer)
 
 ```mermaid
 flowchart TD
@@ -1206,7 +1947,7 @@ flowchart TD
 ```
 **Explicación:** cada token de la secuencia se proyecta a $Q$, $K$, $V$ mediante matrices aprendidas. El producto $QK^T$ mide cuánto "encaja" cada query con cada key (similitud); se escala por $\sqrt{d_k}$ y se normaliza con softmax → pesos de atención. La salida $Y$ es una combinación ponderada de los $V$ de **todos** los tokens, calculada en **un solo paso matricial** (paralelizable), no secuencialmente como en una RNN. La Feed-Forward posterior agrega no-linealidad token por token.
 
-## 7.7 Bloque Encoder del Transformer (×N)
+## 10.7 Bloque Encoder del Transformer (×N)
 
 ```mermaid
 flowchart TD
@@ -1222,7 +1963,7 @@ flowchart TD
 ```
 **Explicación:** cada subcapa (atención y FFN) está envuelta en `residual + LayerNorm`: la salida de la subcapa se suma a su propia entrada (camino directo para el gradiente) y luego se normaliza. Apilando $N$ de estos bloques se logra refinar progresivamente la representación de cada token usando el contexto completo de la secuencia. **BERT = solo esta pila de encoders.**
 
-## 7.8 Bloque Decoder y Transformer Encoder-Decoder completo
+## 10.8 Bloque Decoder y Transformer Encoder-Decoder completo
 
 ```mermaid
 flowchart TD
@@ -1243,7 +1984,7 @@ flowchart TD
 ```
 **Explicación:** el encoder produce representaciones $K,V$ de la secuencia fuente. El decoder tiene **tres** subcapas: (1) self-attention enmascarada (causal — cada posición solo ve las anteriores, necesario para generación autorregresiva), (2) cross-attention donde el **query** viene del decoder pero **keys/values** vienen del encoder (así el decoder "consulta" la fuente en cada paso de generación), y (3) feed-forward. Usado en traducción, resumen, Q&A generativo (T5, BART).
 
-## 7.9 BERT (Encoder-only) — input/output
+## 10.9 BERT (Encoder-only) — input/output
 
 ```mermaid
 flowchart TD
@@ -1259,7 +2000,7 @@ flowchart TD
 ```
 **Explicación:** todos los tokens pueden atender a todos los demás (bidireccional, sin máscara causal) — por eso BERT puede usar contexto izquierdo *y* derecho para predecir `[MASK]`, pero precisamente por esto no puede generar texto de forma autorregresiva (tendría que "ver" tokens futuros que aún no generó). `[CLS]` agrega información de toda la secuencia para tareas de clasificación; `[SEP]` separa pares de oraciones.
 
-## 7.10 GPT (Decoder-only) — generación autorregresiva
+## 10.10 GPT (Decoder-only) — generación autorregresiva
 
 ```mermaid
 flowchart LR
@@ -1275,7 +2016,7 @@ flowchart LR
 ```
 **Explicación:** no hay encoder. Cada posición predice el siguiente token usando **solo** los tokens que ya generó (máscara causal en la self-attention). Durante el entrenamiento esto se hace en paralelo sobre toda la secuencia de una vez (con la máscara forzando la causalidad); durante la generación real, es estrictamente secuencial: se genera un token, se lo agrega a la entrada, y se vuelve a pasar todo por el modelo para el siguiente token.
 
-## 7.11 ELMo (Bi-LSTM apilado)
+## 10.11 ELMo (Bi-LSTM apilado)
 
 ```mermaid
 flowchart LR
@@ -1297,7 +2038,7 @@ flowchart LR
 ```
 **Explicación:** dos LSTMs bidireccionales apiladas (2 capas). Para cada palabra, el embedding contextual final combina las representaciones de **ambas** direcciones y **ambas** capas (capas bajas → sintaxis, capas altas → semántica). A diferencia de Word2Vec, la representación de "hotel" cambia según el resto de la oración — esto es lo que la hace "contextual" en vez de estática.
 
-## 7.12 LoRA (fine-tuning eficiente)
+## 10.12 LoRA (fine-tuning eficiente)
 
 ```mermaid
 flowchart TD
@@ -1312,7 +2053,7 @@ flowchart TD
 
 ---
 
-## 8. Preguntas guía para repasar (auto-examen)
+## 11. Preguntas guía para repasar (auto-examen)
 
 Usar estas preguntas para verificar que la solidez teórica es real y no solo reconocimiento de términos:
 
@@ -1334,7 +2075,7 @@ Usar estas preguntas para verificar que la solidez teórica es real y no solo re
 
 ---
 
-## 9. Glosario rápido de fórmulas clave (cheat-sheet)
+## 12. Glosario rápido de fórmulas clave (cheat-sheet)
 
 | Concepto | Fórmula |
 |---|---|
@@ -1356,7 +2097,7 @@ Usar estas preguntas para verificar que la solidez teórica es real y no solo re
 
 ---
 
-## 10. Respuestas al autoexamen (Sección 8)
+## 13. Respuestas al autoexamen (Sección 11)
 
 **1. ¿Por qué una probabilidad 0 en n-gramas es catastrófica, y cómo lo resuelven Laplace vs. Kneser-Ney?**
 Porque la probabilidad de una oración completa es un **producto** de probabilidades condicionales: $P(w_1,\ldots,w_n)=\prod_i P(w_i\mid w_{<i})$. Si un solo n-grama nunca apareció en entrenamiento, su probabilidad MLE es 0, y como está multiplicando, **toda la cadena colapsa a 0** sin importar qué tan buena sea el resto de la oración — el modelo no puede generalizar a nada no visto literalmente. Laplace soluciona esto sumando 1 a todos los conteos (nunca hay un 0 verdadero), pero es burdo: redistribuye demasiada masa de probabilidad hacia eventos no vistos, perjudicando a los n-gramas que sí tienen buena evidencia. Kneser-Ney es más fino: en vez de "regalar" masa pareja a todo lo no visto, hace backoff a la **probabilidad de continuación** (cuántos contextos distintos preceden a la palabra), que es una mejor estimación de cuán "natural" es esa palabra en general — por eso es el método con mejor performance empírica para n-gramas.
