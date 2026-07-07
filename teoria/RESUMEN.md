@@ -1045,12 +1045,15 @@ Profundizando los dos casos MLM y "discriminativo" de la tabla anterior (6.2):
 - **ELECTRA**: en vez de predecir tokens enmascarados, entrena un **discriminador** que decide, para *cada* token, si es original o fue reemplazado por un generador pequeño. Usa señal de toda la secuencia, no solo el 15% → mucho más eficiente en cómputo.
 
 ### 6.4 Adapters y LoRA — fine-tuning eficiente
-Una vez preentrenado el modelo (6.1-6.3), queda adaptarlo a una tarea específica. Hacerlo actualizando todos los pesos (fine-tuning completo) es costoso — Adapters y LoRA son las alternativas eficientes.
+Una vez preentrenado el modelo (6.1-6.3), queda adaptarlo a una tarea específica. Hacerlo actualizando todos los pesos (fine-tuning completo) es costoso. **PEFT** (*Parameter-Efficient Fine-Tuning*) es el nombre de la **categoría** de métodos que evita ese costo; Adapters y LoRA son **dos técnicas concretas y distintas** dentro de esa categoría — no son sinónimos ni dos nombres para lo mismo, y normalmente se usa **una u otra**, no ambas a la vez.
 
-**Problema**: fine-tunear un modelo entero es costoso, propenso a overfitting en datasets chicos, y requiere un modelo completo por tarea.
-- **Adapters**: módulos pequeños insertados en las capas, solo ellos se entrenan; el resto queda congelado.
-- **LoRA**: congela $W$ y aprende una actualización de bajo rango $W'=W+BA$ con $A\in\mathbb{R}^{r\times d}$, $B\in\mathbb{R}^{d\times r}$, $r\ll d$. Solo $A,B$ son entrenables → drásticamente menos parámetros, menos overfitting, cambio de tarea rápido (solo se cambian las matrices LoRA).
+**Problema común que ambas resuelven**: fine-tunear un modelo entero es costoso, propenso a overfitting en datasets chicos, y requiere guardar un modelo completo por tarea. La idea compartida de todo PEFT: **congelar** casi todos los pesos preentrenados y entrenar solo un puñado de parámetros nuevos. Adapters y LoRA difieren en **qué** parámetros nuevos agregan y **dónde** los agregan:
+
+- **Adapters**: agrega **módulos nuevos** (capas extra, típicamente un cuello de botella: proyección hacia abajo → no-linealidad → proyección hacia arriba) **insertados en serie dentro de la arquitectura**, después de las capas existentes. Solo esos módulos nuevos se entrenan; todo lo demás (incluido $W$) queda congelado. Consecuencia práctica: esos módulos están en el **camino de cómputo** del forward pass → agregan **latencia en inferencia**, aunque el modelo base no cambie.
+- **LoRA** (*Low-Rank Adaptation*): **no agrega capas nuevas** a la arquitectura. En cambio, para una matriz de pesos existente $W$ (p. ej. de atención), la congela y aprende una actualización de bajo rango **en paralelo**: $W'=W+BA$, con $A\in\mathbb{R}^{r\times d}$, $B\in\mathbb{R}^{d\times r}$, $r\ll d$. Solo $A,B$ son entrenables. Consecuencia práctica: como $BA$ tiene la misma forma que $W$, se puede **fusionar** ($W+BA$) en una sola matriz antes de servir el modelo → **sin overhead de latencia en inferencia** (a diferencia de Adapters), y con la posibilidad de mantener $A,B$ separadas para intercambiar rápidamente entre distintos LoRAs (tareas) sobre el mismo modelo base.
   - $W$: la matriz de pesos original preentrenada (de tamaño $d\times d$, congelada, no se modifica). $d$: la dimensión del modelo (puede ser miles). $A,B$: las dos matrices nuevas que sí se entrenan. $r$: el rango de la actualización — una dimensión interna mucho más chica que $d$ (p. ej. $r=8$ vs $d=4096$), que limita cuántos "grados de libertad" tiene la corrección. $BA$: el producto de ambas matrices, de tamaño $d\times d$ igual que $W$, pero de rango (información efectiva) mucho menor por construcción. $W'$: la matriz efectiva usada en inferencia, suma de la original más la corrección.
+
+**En una frase para no confundirlas**: Adapters añade **capas nuevas en serie** (cambia la arquitectura, cuesta latencia); LoRA añade una **corrección de bajo rango en paralelo** a pesos existentes (no cambia la arquitectura, se puede fusionar sin costo en inferencia). Ambas son PEFT; ninguna es un caso particular de la otra.
 
 **Código (fine-tuning eficiente con LoRA, librería `peft`):**
 ```python
@@ -1781,11 +1784,17 @@ Juntando todo, un **agente autónomo** es un sistema con el **LLM en el centro**
 
 **Definición**: un sistema que recibe un **objetivo**, **itera** decidiendo acciones, **observa** el entorno, **ajusta** su plan y **converge** al objetivo. Ese loop `decidir → actuar → observar → ajustar` es la esencia de lo agéntico (es el mismo esquema que un ciclo de control con retroalimentación).
 
-### 9.8 Orquestación: el Harness vs. el Framework
-Punto contraintuitivo y muy enfatizado: **el Harness es más importante que el Framework**. Los frameworks de moda (LangGraph, AutoGen, OpenAI Agents SDK, Semantic Kernel, CrewAI) **cambian cada 6 meses** — son la capa superficial. Lo que realmente define al agente es **The Orchestration Loop**, un programa **determinista** que envuelve al modelo:
+### 9.8 Orquestación: Harness, Orchestration Loop y Framework — tres términos, no un sinónimo
+Antes de la idea central de esta sección, vale distinguir tres palabras que se usan como si fueran intercambiables y **no lo son** — cada una designa una capa distinta del mismo sistema:
+
+- **Framework**: la librería/SDK de terceros que da abstracciones para *escribir* agentes más rápido (LangGraph, AutoGen, OpenAI Agents SDK, Semantic Kernel, CrewAI). Es una herramienta de desarrollo, reemplazable, y **cambia cada 6 meses** — hoy se usa una, el año que viene otra, sin que cambie lo que el agente hace.
+- **Harness**: el programa de software concreto que en producción **efectivamente envuelve al LLM** — puede estar escrito usando un Framework o a mano, eso es irrelevante. Es la capa que persiste y que de verdad determina el comportamiento del agente, independientemente de qué Framework (si alguno) se usó para construirlo.
+- **The Orchestration Loop**: el **algoritmo concreto** que el Harness ejecuta en cada iteración — no es una capa extra, es *el contenido* del Harness, expresado como ciclo:
 $$\text{Dynamic Prompts} \to \text{JSON Parsing estricto} \to \text{Error Retries} \to \text{Context Window Truncation} \to \text{Tool Execution} \to (\text{loop})$$
 
-**El insight** (clave de examen): **el Agente NO es el modelo neuronal**. El agente es **este programa determinista subyacente** que lo orquesta — el que arma los prompts dinámicos, parsea las firmas JSON (9.3), reintenta ante errores, trunca el contexto cuando se llena, y ejecuta las herramientas. El LLM es solo una pieza (el "selector estocástico") dentro de un sistema de software clásico e ingenierilmente robusto.
+En criollo: el **Framework** es la caja de herramientas con la que se construye; el **Harness** es la pieza de software ya construida que corre en producción; el **Orchestration Loop** es el algoritmo que esa pieza ejecuta una y otra vez. Se puede tirar el Framework a la basura y reemplazarlo por otro sin tocar el Harness ni el Loop — por eso el punto contraintuitivo y muy enfatizado: **el Harness importa mucho más que el Framework**, porque es determinista, reusable entre modelos, y es lo que en la práctica hace o rompe al agente (no el LLM, y no la librería de moda).
+
+**El insight** (clave de examen): **el Agente NO es el modelo neuronal**. El "agente" es el **sistema completo**: un Harness (que ejecuta el Orchestration Loop) **envolviendo** al LLM — el que arma los prompts dinámicos, parsea las firmas JSON (9.3), reintenta ante errores, trunca el contexto cuando se llena, y ejecuta las herramientas. El LLM es solo una pieza dentro de ese sistema (el "selector estocástico", 9.3); el Harness es software clásico, determinista e ingenierilmente robusto — no una red neuronal.
 
 ### 9.9 Evaluación de sistemas estocásticos
 Evaluar agentes rompe la evaluación clásica. Un **benchmark estático** (MMLU, HumanEval — accuracy sobre un set fijo) **ya no alcanza**: mide el modelo, no el sistema. La **evaluación sistémica** de agentes usa métricas nuevas:
